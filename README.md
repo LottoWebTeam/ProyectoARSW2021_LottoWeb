@@ -12,6 +12,8 @@ Para la intermediación entre los transportistas y los usuarios mediante una apl
 ## Objetivos
 *  Enlazar personas que buscan una alternativa eficiente, segura y digital desolicitar el transporte de sus mudanzas o acarreos, con transportistas.
 *  Permitir a los transportistas generar ingresos por demanda conectandolos con usuarios que soliciten un viaje, actualmente estos servicios sólo los pueden realizar con familiares y conocidos, o en lugares comerciales esperando que usuarios lleguen a ellos (Estos lugares generalmente son de seguridad crítica).
+*  solicitar un viaje estableciendo el punto departida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductor llegue al punto de partida.
+*  Ofrecer funcionalidades de Seguimiento en tiempo real del viaje, Intermerdiacion entre multiples usuarios y conductores, Alta eficacia en los tiempos de atención, Alta efectividad para los conductores de los vehiculos y Seguridad en la operación
 
 ## Descripción
 
