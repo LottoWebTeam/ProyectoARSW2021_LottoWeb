@@ -36,9 +36,7 @@ Los transportistas que cuentan con camiones, camionetas, entreotros, necesitan g
 
 ## Despliegue en Codacy
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6ae092aed25d47a897b7ee6d26ff857f)](https://www.codacy.com/gh/Los-Innombrables/2020-2-PROYCVDS-LosInnombrables/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Los-Innombrables/2020-2-PROYCVDS-LosInnombrables&amp;utm_campaign=Badge_Grade)
-
-## Autores
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6dc63ea7bc64c57988c829bcac97102)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LottoWebTeam/ProyectoARSW2021_LottoWeb&amp;utm_campaign=Badge_Grade)
 
 * **Adriana Marcela Castañeda Velasquez** - [adrianamcv](https://github.com/adrianamcv)
 * **Brayan Santiago Buitrago Murillo** - [DonSantiagoS](https://github.com/DonSantiagoS)
