@@ -49,6 +49,8 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 * **Diagrama de casos de uso:**
 
+![](img/casos%20de%20uso.png)
+
 * **Diagrama de clases:**
 
 ![](img/DiagramaClases.PNG)
