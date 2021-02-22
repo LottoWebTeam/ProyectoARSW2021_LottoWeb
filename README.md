@@ -20,28 +20,28 @@ Los usuarios pueden ingresar a la aplicación y registrarse como conductores o c
 
 ![](Mockup/2-Registro.PNG)
 
-![](Mockup/4-Iniciar sesión.PNG)
+![](Mockup/4-IniciarSesión.PNG)
 
 * **Solicitud de un servicio:**
 Es posible solicitar un viaje estableciendo el punto de partida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductores llegue al punto de partida.
 
-![](Mockup/11-Nuevo viaje.PNG)
+![](Mockup/11-NuevoViaje.PNG)
 
-![](Mockup/14-Seguir viaje.PNG)
+![](Mockup/14-SeguirViaje.PNG)
 
 * **Tomar un servicio:**
 Una vez se realiza la solicitud de un servicio, los conductores podrán verlo en los viajes disponibles y decidir si desean enviar una oferta. El cliente puede elegir que oferta tomar y una vez seleccionada iniciará el viaje.
 
-![](Mockup/7-Viajes disponibles.PNG)
+![](Mockup/7-ViajesDisponibles.PNG)
 
-![](Mockup/12-Ofertas viaje.PNG)
+![](Mockup/12-OfertasViaje.PNG)
 
 * **Durante y después del viaje:**
 Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido. Una vez finalice el viaje los usuario podrán calificar al conductor de acuerdo al servicio prestado.
 
 ![](Mockup/15-Recorrido.PNG)
 
-![](Mockup/16-Calificar conductor.PNG)
+![](Mockup/16-CalificarConductor.PNG)
 
 ## Diagramas
 
@@ -49,11 +49,11 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 * **Diagrama de clases:**
 
-![](img/Diagrama clases.PNG)
+![](img/DiagramaClases.PNG)
 
 * **Diagrama de componentes:**
 
-![](img/Diagrama componentes.PNG)
+![](img/DiagramaComponentes.PNG)
 
 
 ## Taiga
