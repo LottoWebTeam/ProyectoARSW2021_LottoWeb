@@ -1,0 +1,23 @@
+Estimaciones (uso de la plataforma):
+    Primer año:	
+	1000 usuarios.
+	Por mes se ofertaran por usuario entre 40 y 80 viajes. 
+	Usando la mínima cantidad de viajes mensuales llevados acabo que son 40, nos basaremos para hacer las cuentas.
+	con foto de perfil o sin foto de perfil del usuario
+	12*40*1000= 480.000KB.	
+	Peso aprox de la foto de perfil 200 kb
+	12*40*1000*200= 96'0000.000KB.
+	Un comentario entre 20 y 100 bites.
+	Usuarios activos por día entre 150 y 300.
+Estimación de Data (peso):
+	Conductor
+	Documento: 4 bytes 
+	Tip de Documento: 4 bytes 
+	Nombre: 4 bytes
+	Correo: 5 bytes
+	Teléfono: 4 bytes
+	Clave: 4 bytes
+	Calificación: 4 bytes
+	Total = 29 bytes
+	Ahora por las mil personas 2900 bytes
+
