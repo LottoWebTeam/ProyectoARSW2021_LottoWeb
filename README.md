@@ -44,6 +44,6 @@ Los transportistas que cuentan con camiones, camionetas, entreotros, necesitan g
 * **Brayan Santiago Buitrago Murillo** - [DonSantiagoS](https://github.com/DonSantiagoS)
 * **Guillermo Alfonso Castro Camelo** - [Memo1019](https://github.com/memo1019)
 
-## Licensia
+## Licencia
 
 This project is licensed under the GNU v3.0 License - see the [LICENSE](LICENSE.txt) file for details
