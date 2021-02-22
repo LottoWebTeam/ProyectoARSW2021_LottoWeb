@@ -27,7 +27,7 @@ Los transportistas que cuentan con camiones, camionetas, entreotros, necesitan g
 
 ## Despliegue en Heroku☁️
 
-[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://historial-de-equipos.herokuapp.com/)
+[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://projectlottoweb2021.herokuapp.com/)
 
 ## Despliegue en CircleCi✔️ 
 
