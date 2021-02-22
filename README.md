@@ -2,22 +2,58 @@
 
 Para la intermediación entre los transportistas y los usuarios mediante una aplicación móvil en Bogotá
 
-## Quienes Somos?
-LOTTOWEB busca enlazar usuarios que buscan serviciosde mudanzas o acarreos detodo tipo con transportistasque cuentan con vehículos decarga que sastifagan dichanecesidad, logrando a su vezincrementar sus ingresos apartir de actividades pordemanda
+## ¿Quiénes Somos?
+
+**LOTTOWEB** busca enlazar usuarios que buscan servicios de mudanzas o acarreos de todo tipo con transportistas que cuentan con vehículos de carga que sastifagan dicha necesidad, logrando a su vez incrementar sus ingresos apartir de actividades por demanda.
+
+![](img/Logo.PNG)
+
 
 ## Objetivos
-- 
-## Descripcion
-Las personas buscan una alternativa eficiente, segura y digital desolicitar el transporte de sus mudanzas o acarreos.
-Los transportistas que cuentan con camiones, camionetas, entreotros, necesitan generar ingresos con sus vehículos a partir deactividades por demanda. Actualmente estos servicios sólo lospueden realizar con familiares y conocidos, o en lugarescomerciales esperando que usuarios lleguen a ellos (Estoslugares generalmente son de seguridad crítica).
+*  Enlazar personas que buscan una alternativa eficiente, segura y digital desolicitar el transporte de sus mudanzas o acarreos, con transportistas.
+*  Permitir a los transportistas generar ingresos por demanda conectandolos con usuarios que soliciten un viaje, actualmente estos servicios sólo los pueden realizar con familiares y conocidos, o en lugares comerciales esperando que usuarios lleguen a ellos (Estos lugares generalmente son de seguridad crítica).
 
-## Diagramas 
-### Diagrama de casos de uso
+## Descripción
 
-### Diagrama de clases
+* **Login - Registro:**
+Los usuarios pueden ingresar a la aplicación y registrarse como conductores o clientes para solicitar un servicio. Una vez ingresen encontraran diferentes funcionalidades de acuerdo a su perfil.
 
+![](Mockup/2-Registro.PNG)
 
-### Diagrama de componentes
+![](Mockup/4-Iniciar sesión.PNG)
+
+* **Solicitud de un servicio:**
+Es posible solicitar un viaje estableciendo el punto de partida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductores llegue al punto de partida.
+
+![](Mockup/11-Nuevo viaje.PNG)
+
+![](Mockup/14-Seguir viaje.PNG)
+
+* **Tomar un servicio:**
+Una vez se realiza la solicitud de un servicio, los conductores podrán verlo en los viajes disponibles y decidir si desean enviar una oferta. El cliente puede elegir que oferta tomar y una vez seleccionada iniciará el viaje.
+
+![](Mockup/7-Viajes disponibles.PNG)
+
+![](Mockup/12-Ofertas viaje.PNG)
+
+* **Durante y después del viaje:**
+Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido. Una vez finalice el viaje los usuario podrán calificar al conductor de acuerdo al servicio prestado.
+
+![](Mockup/15-Recorrido.PNG)
+
+![](Mockup/16-Calificar conductor.PNG)
+
+## Diagramas
+
+* **Diagrama de casos de uso:**
+
+* **Diagrama de clases:**
+
+![](img/Diagrama clases.PNG)
+
+* **Diagrama de componentes:**
+
+![](img/Diagrama componentes.PNG)
 
 
 ## Taiga
