@@ -22,7 +22,7 @@ Los transportistas que cuentan con camiones, camionetas, entreotros, necesitan g
 
 ## Taiga
 
-[![Taiga Backlog](https://images.assets-landingi.com/jvS0A3Tm24feIBqs/logo_horizontal.png)](https://tree.taiga.io/project/candres1019-historial-de-equipos-labinfo/backlog)
+[![Taiga Backlog](https://images.assets-landingi.com/jvS0A3Tm24feIBqs/logo_horizontal.png)](https://tree.taiga.io/project/memo1019-2021-1-proyectarsw-lottoweb/backlog)
 
 
 ## Despliegue en Heroku☁️
