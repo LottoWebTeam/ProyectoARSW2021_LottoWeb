@@ -29,8 +29,7 @@ import java.util.List;
 @org.springframework.web.bind.annotation.RestController
 @Controller
 @CrossOrigin("*")
-@RequestMapping("/api")
-@RequestMapping("/clients")
+@RequestMapping({"/api", "/clients"})
 public class ControladorLottoWeb {
 
     @Autowired
