@@ -1,0 +1,41 @@
+datasources:
+  principal:
+#    jdbcUrl: jdbc:postgresql://ec2-34-235-108-68.compute-1.amazonaws.com:5432/d1uif04t1n3ae8?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+    jdbcUrl: jdbc:postgresql://ec2-34-235-108-68.compute-1.amazonaws.com:5432/d1uif04t1n3ae8?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require
+    username: arebagfsgyvtzk
+    password: fb8b84052f26de38ee1250819c342cd3d6b36529a9c84a00680f8982f767a0c4
+    maximumPoolSize: 1
+  test:
+    jdbcUrl: jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL
+    username: sa
+    password:
+    maximumPoolSize: 1
+
+# Spring properties
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost/test
+  application:
+    name: user-service  # Service registers under this name
+
+endpoints:
+  health:
+    enabled: yes
+  shutdown:
+    enabled: yes
+
+management:
+  context-path: /admin
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          client: DEBUG
+
+# HTTP Server
+server:
+  port: 8080   # HTTP (Tomcat) port
