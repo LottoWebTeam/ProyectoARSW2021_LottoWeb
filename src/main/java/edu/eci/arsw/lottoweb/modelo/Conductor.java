@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Conductor {
 
     private int documento;
-    private TDoc tipoDocumento;
+    private String tipoDocumento;
     private String nombre;
     private String correo;
     private int telefono;

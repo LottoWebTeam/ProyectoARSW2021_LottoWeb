@@ -57,8 +57,8 @@ puntoLlegada VARCHAR(50) NOT NULL
 
 CREATE TABLE ViajeEnCurso(
 id INTEGER NOT NULL,
-docCondutor VARCHAR(50) NOT NULL,
-tipoDocCondutor VARCHAR(50) NOT NULL,
+docConductor VARCHAR(50) NOT NULL,
+tipoDocConductor VARCHAR(50) NOT NULL,
 idViaje INTEGER NOT NULL,
 latitudUbicacion INTEGER NOT NULL,
 longitudUbicacion INTEGER NOT NULL
