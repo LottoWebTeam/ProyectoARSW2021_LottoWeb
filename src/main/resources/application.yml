@@ -1,7 +1,7 @@
 datasources:
   principal:
-#    jdbcUrl: jdbc:postgresql://ec2-3-91-127-228.compute-1.amazonaws.com:5432/dc0b5re52fr7c?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
-    jdbcUrl:jdbc:postgresql://ec2-3-91-127-228.compute-1.amazonaws.com:5432/dc0b5re52fr7c?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require
+    #jdbcUrl: jdbc:postgresql://ec2-3-91-127-228.compute-1.amazonaws.com:5432/dc0b5re52fr7c?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+    jdbcUrl: jdbc:postgresql://ec2-3-91-127-228.compute-1.amazonaws.com:5432/dc0b5re52fr7c?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require
     username: skiwkdnirccpsz
     password: 21beab87befa216463edb748375a97b56f8d85138691fc0ca92eb78209c19431
     maximumPoolSize: 1
