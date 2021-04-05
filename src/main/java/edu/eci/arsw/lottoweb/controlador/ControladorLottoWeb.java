@@ -38,11 +38,6 @@ public class ControladorLottoWeb {
     @Autowired
     private JwtService jwtService;
 
-//    public EasyCareController(EasyCareService easyCareService, JwtService jwtService) {
-//        this.easyCareService = easyCareService;
-//        this.jwtService = jwtService;
-//    }
-
     @GetMapping("")
     @ApiOperation(value = "Obtener todos los clientes",notes = "retorna todos los clientes")
     public ResponseEntity<?> getClientes() throws ExceptionServiciosLottoWeb {
@@ -140,7 +135,7 @@ public class ControladorLottoWeb {
     }
 
     @PostMapping("/register/{correo}/{password}/{nombre}/{cedula}/{telefono}")
-    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable int cedula, @PathVariable int telefono){
+    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable int telefono){
         try{
             System.out.println("yaaaaaaaaaaaaaaaaaaaaaaaaa");
             Cliente cliente = new Cliente();

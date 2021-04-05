@@ -51,7 +51,7 @@ public class detallesUsuarioServiceImpl implements UserDetailsService {
                 return userBuilder(cl.getCorreo(), cl.getPassword(), new BCryptPasswordEncoder().encode(cl.getPassword()),"cliente");
             }
             else if(ps != null){
-                return userBuilder(ps.getCorreo(), ps.getPassword(), new BCryptPasswordEncoder().encode(ps.getPassword()),"paseador");
+                return userBuilder(ps.getCorreo(), ps.getPassword(), new BCryptPasswordEncoder().encode(ps.getPassword()),"conductor");
             }
             throw new UsernameNotFoundException("Usuario no valido");
         }catch (ExceptionServiciosLottoWeb e){

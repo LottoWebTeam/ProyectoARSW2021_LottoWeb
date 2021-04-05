@@ -21,17 +21,24 @@ import java.util.List;
  */
 
 
+@ApiModel("Model Ruta")
 public class Oferta {
 
+    @ApiModelProperty(value = "Identificador de la subasta", required = true)
     private int id;
-    private Subasta subasta;
+    @ApiModelProperty(value = "Valor que se dió como resultado de la subasta", required = true)
+    private int subasta;
+    @ApiModelProperty(value = "Creador de la subasta", required = true)
     private Cliente creador;
+    @ApiModelProperty(value = "paseo de la subasta", required = true)
     private Viaje viaje;
+    @ApiModelProperty(value = "Paseadores en la subasta", required = true)
     List<Conductor> conductores = new ArrayList<>();
 
-    public void Oferta(){
+    public Oferta(){
 
     }
+
     public int getId() {
         return id;
     }
@@ -40,50 +47,35 @@ public class Oferta {
         this.id = id;
     }
 
-    public Subasta getSubasta() {
+    public int getSubasta() {
         return subasta;
     }
 
-    public void setSubasta(Subasta oferta) {
-        this.subasta = oferta;
+    public void setSubasta(int subasta) {
+        this.subasta = subasta;
     }
 
     public Cliente getCreador() {
         return creador;
     }
 
-    public void setOferta(Subasta subasta) {
-        this.subasta = subasta;
-    }
-
-    public Viaje getViaje(){
-        return viaje;
-    }
-
-    public void setViaje(Viaje viaje) {
-        this.viaje = viaje;
-    }
-
-    public List<Conductor> getConductores(){
-        return conductores;
-    }
-
-    public void setConductores(ArrayList<Conductor> conductores) {
-        this.conductores = conductores;
-    }
-
     public void setCreador(Cliente creador) {
         this.creador = creador;
     }
 
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje idviaje) {
+        this.viaje = idviaje;
+    }
+
+    public List<Conductor> getConductores() {
+        return conductores;
+    }
+
     public void setConductores(List<Conductor> conductores) {
         this.conductores = conductores;
-    }
-
-    public void setConductor(Conductor conductor) {
-    }
-
-    public boolean getPermitirMasVehiculos() {
-        return true;
     }
 }

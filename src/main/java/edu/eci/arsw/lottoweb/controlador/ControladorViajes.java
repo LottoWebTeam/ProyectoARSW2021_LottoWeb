@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/paseos")
-@Api(value = "servicio Paseos")
+@RequestMapping("/viajes")
+@Api(value = "servicio Viajes")
 public class ControladorViajes {
     @Autowired
     private final ServiceLottoWeb serviceLottoWeb;
@@ -39,22 +39,22 @@ public class ControladorViajes {
     }
 
     @GetMapping("/")
-    @ApiOperation(value = "Obtiene todos los paseos",notes = "devuelve todos los paseos")
-    public ResponseEntity<?> getPaseos(){
+    @ApiOperation(value = "Obtiene todos los viajes",notes = "devuelve todos los viajes")
+    public ResponseEntity<?> getViajes(){
         try {
-            return new ResponseEntity<>(serviceLottoWeb.getPaseos(), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(serviceLottoWeb.getViajes(), HttpStatus.ACCEPTED);
         }catch (Exception e){
-            return new ResponseEntity<>("No existe registro de paseos", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No existe registro de viajes", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "Encuentra un paseo",notes = "devuelve un paseo por id")
-    public ResponseEntity<?> getPaseo(@PathVariable int id){
+    @ApiOperation(value = "Encuentra un viaje",notes = "devuelve un viaje por id")
+    public ResponseEntity<?> getViaje(@PathVariable int id){
         try {
-            return new ResponseEntity<>(serviceLottoWeb.getPaseo(id), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(serviceLottoWeb.getViaje(id), HttpStatus.ACCEPTED);
         }catch (Exception e){
-            return new ResponseEntity<>("El paseo solicitado no existe", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("El viaje solicitado no existe", HttpStatus.NOT_FOUND);
         }
     }
 }

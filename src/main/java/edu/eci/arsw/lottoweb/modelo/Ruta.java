@@ -24,18 +24,11 @@ public class Ruta {
     @ApiModelProperty(value = "Identificador de la ruta", required = true)
     private int id;
     @ApiModelProperty(value = "Partida de la ruta", required = true)
-    private String puntoInicial;
+    private String puntoPartida;
     @ApiModelProperty(value = "Llegada de la ruta", required = true)
-    private String puntoFinal;
+    private String puntoLlegada;
 
-    public Ruta(int id, String puntoInicial, String puntoFinal){
-        this.id=id;
-        this.puntoInicial=puntoInicial;
-        this.puntoFinal=puntoFinal;
-    }
-
-    public Ruta() {
-
+    public Ruta(){
     }
 
     public int getId() {
@@ -46,23 +39,19 @@ public class Ruta {
         this.id = id;
     }
 
-    public String getPuntoInicial() {
-        return puntoInicial;
+    public String getPuntoPartida() {
+        return puntoPartida;
     }
 
-    public void setPuntoInicial(String puntoInicial) {
-        this.puntoInicial = puntoInicial;
+    public void setPuntoPartida(String puntoPartida) {
+        this.puntoPartida = puntoPartida;
     }
 
-    public String getPuntoFinal() {
-        return puntoFinal;
+    public String getPuntoLlegada() {
+        return puntoLlegada;
     }
 
-    public void setPuntoFinal(String puntoFinal) {
-        this.puntoFinal = puntoFinal;
-    }
-
-    public Ruta getRuta() {
-        return this;
+    public void setPuntoLlegada(String puntoLlegada) {
+        this.puntoLlegada = puntoLlegada;
     }
 }

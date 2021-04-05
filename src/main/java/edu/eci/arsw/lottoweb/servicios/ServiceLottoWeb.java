@@ -23,16 +23,26 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public interface ServiceLottoWeb {
 
-    Cliente getCliente(String doocumento, String tdoc) throws ExceptionServiciosLottoWeb;
+    Cliente getCliente(String documento, String tdoc) throws ExceptionServiciosLottoWeb;
 
     Cliente getCliente(String correo) throws ExceptionServiciosLottoWeb;
 
-    List<Cliente> getAllClintes() throws ExceptionServiciosLottoWeb;
+    List<Cliente> getAllClientes() throws ExceptionServiciosLottoWeb;
 
     void saveCliente(Cliente cliente) throws ExceptionServiciosLottoWeb;
 
-    void deleteMascota(int id) throws ExceptionServiciosLottoWeb;
+    Vehiculo getVehiculo(int id) throws ExceptionServiciosLottoWeb;
+    
+    List<Vehiculo> getVehiculos() throws ExceptionServiciosLottoWeb;
 
+    List<Vehiculo> getVehiculos(String cliente) throws ExceptionServiciosLottoWeb;
+
+    void saveVehiculo(Vehiculo vehiculo) throws ExceptionServiciosLottoWeb;
+
+    void updateVehiculo(Vehiculo vehiculo) throws ExceptionServiciosLottoWeb;
+
+    void deleteVehiculo(int id) throws ExceptionServiciosLottoWeb;
+    
     Conductor getConductor(String documento, String tdoc) throws ExceptionServiciosLottoWeb;
 
     Conductor getConductor(String correo) throws ExceptionServiciosLottoWeb;
@@ -43,27 +53,19 @@ public interface ServiceLottoWeb {
 
     void saveConductor(Conductor conductor) throws ExceptionServiciosLottoWeb;
 
-    Viaje getPaseo(int id) throws ExceptionServiciosLottoWeb;
-
     Viaje getViaje(int id) throws ExceptionServiciosLottoWeb;
 
     List<Viaje> getViajes() throws ExceptionServiciosLottoWeb;
 
-//    void savePaseo(Viaje paseo, String latitud, String longitud) throws ExceptionServiciosLottoWeb;
+    Oferta getOferta(int id) throws ExceptionServiciosLottoWeb;
 
-    Oferta getOferta(int id) throws ExceptionServiciosLottoWeb, PersistenceException;
-
-    List<Oferta> getOfertas() throws ExceptionServiciosLottoWeb, PersistenceException;
+    List<Oferta> getOfertas() throws ExceptionServiciosLottoWeb;
 
     void saveOferta(Oferta oferta,String latitud, String longitud) throws ExceptionServiciosLottoWeb;
 
-
-
     Collection<Oferta> getOfertasIniciadas() throws ExceptionServiciosLottoWeb;
 
-    Collection<Subasta> getSubastasIniciadas() throws ExceptionServiciosLottoWeb, PersistenceException;
-
-    void actualizar() throws ExceptionServiciosLottoWeb, PersistenceException;
+    void actualizar() throws ExceptionServiciosLottoWeb;
 
     void addOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
@@ -75,58 +77,15 @@ public interface ServiceLottoWeb {
 
     void salirDeOferta(Conductor conductor, Oferta oferta) throws ExceptionServiciosLottoWeb;
 
+    void agregarSubastaOferta(Oferta oferta, Conductor conductor, int subasta) throws ExceptionServiciosLottoWeb;
 
+    List<Subasta> getSubastasOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
-    List<Oferta> getOfertasOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
-
-    void agregarOfertaSubasta(Subasta subasta, Conductor conductor, int oferta) throws ExceptionServiciosLottoWeb;
-
-    List<Oferta> getOfertasSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
 
     Oferta getOfertaIniciada(int oferta) throws ExceptionServiciosLottoWeb;
-
-
-    void actualizarSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
 
     void actualizarOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
     void actualizarConductor(Conductor conductor) throws ExceptionServiciosLottoWeb;
 
-    Object getAllClientes();
-
-    Object getVehiculos(String correo);
-
-    Object getVehiculos();
-
-    Object getVehiculo(int id);
-
-    void saveVehiculo(Vehiculo vehiculo);
-
-    void updateVehiculo(Vehiculo vehiculo);
-
-    void deleteVehiculo(int id);
-
-    Object getPaseos();
-
-    Conductor getconductor(String string);
-
-    void solicitarServicio(Cliente cliente, Oferta oferta) throws ExceptionServiciosLottoWeb;
-
-    List<Subasta> getSubastas() throws ExceptionServiciosLottoWeb;
-
-    void saveSubasta(Subasta subasta, String latitud, String longitud) throws ExceptionServiciosLottoWeb;
-
-    void addSubasta(Subasta subasta);
-
-    Subasta getSubasta(int numSubasta) throws ExceptionServiciosLottoWeb;
-
-    void cerrarSubasta(int numSubasta) throws ExceptionServiciosLottoWeb;
-
-    List<Conductor> getConductoresEnSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
-
-    void entrarASubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
-
-    void salirDeSubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
-
-    Subasta getSubastaIniciada(int idSubasta);
 }

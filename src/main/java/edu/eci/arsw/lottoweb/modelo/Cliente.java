@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class Cliente implements Serializable{
 
     @ApiModelProperty(value = "el documento del cliente (Hace parte del la primaria compuesta)", required = true)
-    private int documento;
+    private String documento;
     @ApiModelProperty(value = "el tipo de documeto del cliente (Hace parte de la primaria compuesta)", required = true)
     private String tipoDocumento;
     @ApiModelProperty(value = "el nombre del cliente", required = true)
@@ -41,7 +41,7 @@ public class Cliente implements Serializable{
     @ApiModelProperty(value = "Viajes del cliente", required = true)
     private ArrayList<Viaje> viajes;
 
-    public Cliente(int documento, String tipoDocumento, String nombre, String correo, int telefono, String password){
+    public Cliente(String documento, String tipoDocumento, String nombre, String correo, int telefono, String password){
         this.documento=documento;
         this.tipoDocumento=tipoDocumento;
         this.nombre=nombre;
@@ -54,15 +54,11 @@ public class Cliente implements Serializable{
     }
     public Cliente(){}
 
-    public Cliente getCliente(String correo){
-        return this;
-    }
-
-    public int getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 
@@ -128,9 +124,6 @@ public class Cliente implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setDocumento(String string) {
     }
 
     public void setTelefono(String string) {

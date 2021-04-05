@@ -19,6 +19,4 @@ import edu.eci.arsw.lottoweb.persistencia.*;
 public class ExceptionServiciosLottoWeb extends Exception{
     public ExceptionServiciosLottoWeb(String message, PersistenceException e) { }
 
-    public ExceptionServiciosLottoWeb(String message, edu.eci.arsw.lottoweb.persistencia.mybatis.PersistenceException e) {
-    }
 }
