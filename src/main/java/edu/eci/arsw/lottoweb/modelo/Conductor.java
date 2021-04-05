@@ -51,7 +51,7 @@ public class Conductor {
         return password;
     }
 
-    public Conductor getConductor(){
+    public Conductor getConductor(String correo){
         return this;
     }
 

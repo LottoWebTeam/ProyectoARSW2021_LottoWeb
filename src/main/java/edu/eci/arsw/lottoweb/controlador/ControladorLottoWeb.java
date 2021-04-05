@@ -41,8 +41,8 @@ public class ControladorLottoWeb {
     @PostMapping("/login/{correo}/{password}")
     public ResponseEntity<?> authenticateUser(@PathVariable String correo, @PathVariable String password) {
         try{
-            Cliente cliente = ServiceLottoWeb.getCliente();
-            Conductor conductor= ServiceLottoWeb.getConductor();
+            Cliente cliente = ServiceLottoWeb.getCliente(correo);
+            Conductor conductor= ServiceLottoWeb.getConductor(correo);
             if((cliente!=null) && (cliente.getPassword().equals(password))){
                 List<String> roles = new ArrayList<>();
                 roles.add("cliente");

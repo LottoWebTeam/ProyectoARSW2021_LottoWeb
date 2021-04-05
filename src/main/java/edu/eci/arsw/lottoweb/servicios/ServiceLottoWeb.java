@@ -21,14 +21,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public interface ServiceLottoWeb {
 
-    static Cliente getCliente() throws ExceptionServiciosLottoWeb {
+    static Cliente getCliente(String correo) throws ExceptionServiciosLottoWeb {
         return null;
     }
 
-    static Conductor getConductor() throws ExceptionServiciosLottoWeb {
+    static Conductor getConductor(String correo) throws ExceptionServiciosLottoWeb {
         return null;
     }
 
     static void guardarCliente(Cliente cliente) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    static void guardarConductor(Conductor conductor) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    static void solicitarServicio(Cliente cliente, Oferta oferta) throws ExceptionServiciosLottoWeb {
+
     }
 }
