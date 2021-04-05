@@ -1,8 +1,8 @@
 package edu.eci.arsw.lottoweb.controlador;
 
-import edu.eci.arsw.easycare.model.Paseo;
-import edu.eci.arsw.easycare.service.ServiceLottoWeb;
-import edu.eci.arsw.easycare.service.impl.JwtService;
+import edu.eci.arsw.lottoweb.modelo.*;
+import edu.eci.arsw.lottoweb.servicios.*
+import edu.eci.arsw.lottoweb.servicios.impl.JwtService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class ControladorViajes {
     @Autowired
     private JwtService jwtService;
 
-    public PaseosController(ServiceLottoWeb serviceLottoWeb) {
+    public ViajesController(ServiceLottoWeb serviceLottoWeb) {
         this.serviceLottoWeb = serviceLottoWeb;
     }
 
