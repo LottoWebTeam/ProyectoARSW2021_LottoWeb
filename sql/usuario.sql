@@ -1,2 +1,2 @@
-INSERT INTO Cliente (documento , tipodocumento ,nombre ,correo ,telefono ,"password" ) VALUES (1019148953, 'cedula', 'Guillermo CAstro', 'memoriche@hotmail.com', 3133917288, 'papimami12');
-INSERT INTO Conductor (documento , tipodocumento ,nombre ,correo ,telefono ,"password" ) VALUES (1015476135, 'cedula', 'Byayan Buitrago', 'brayan@hotmail.com', 3128859663, 'papimami12');
+INSERT INTO Cliente (documento , tipodocumento ,nombre ,correo ,telefono ,password ) VALUES (1019148953, 'cedula', 'Guillermo CAstro', 'memoriche@hotmail.com', 3133917288, 'papimami12');
+INSERT INTO Conductor (documento , tipodocumento ,nombre ,correo ,telefono ,password ,calificacion) VALUES (1015476135, 'cedula', 'Byayan Buitrago', 'brayan@hotmail.com', 3128859663, 'papimami12',0);

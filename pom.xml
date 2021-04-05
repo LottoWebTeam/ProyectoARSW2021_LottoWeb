@@ -205,7 +205,7 @@
             <configuration>
               <srcFiles>
                 <srcFile>sql/tablas.sql</srcFile>
-                <srcFile>sql/poblar.sql</srcFile>
+                <srcFile>sql/usuario.sql</srcFile>
               </srcFiles>
             </configuration>
           </execution>
