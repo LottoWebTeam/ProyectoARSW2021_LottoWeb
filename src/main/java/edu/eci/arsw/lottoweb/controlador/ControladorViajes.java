@@ -1,7 +1,7 @@
 package edu.eci.arsw.lottoweb.controlador;
 
 import edu.eci.arsw.lottoweb.modelo.*;
-import edu.eci.arsw.lottoweb.servicios.*
+import edu.eci.arsw.lottoweb.servicios.*;
 import edu.eci.arsw.lottoweb.servicios.impl.JwtService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,7 +34,7 @@ public class ControladorViajes {
     @Autowired
     private JwtService jwtService;
 
-    public ViajesController(ServiceLottoWeb serviceLottoWeb) {
+    public ControladorViajes(ServiceLottoWeb serviceLottoWeb) {
         this.serviceLottoWeb = serviceLottoWeb;
     }
 

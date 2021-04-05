@@ -54,7 +54,6 @@ public class Cliente implements Serializable{
         ofertas= new ArrayList<Oferta>();
     }
 
-<<<<<<< HEAD
     public Cliente getCliente(String correo){
         return this;
     }
@@ -84,13 +83,10 @@ public class Cliente implements Serializable{
     }
 
     public String getCorreo() {
-=======
-    public Cliente() {
 
-    }
 
     public String getCorreo(){
->>>>>>> 9d2d5f285bef15a6d7799c074aee012fdf1e2632
+
         return correo;
     }
 
