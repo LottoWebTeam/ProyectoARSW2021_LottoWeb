@@ -1,5 +1,9 @@
 package edu.eci.arsw.lottoweb.modelo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import javax.validation.constraints.NotNull;
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -14,13 +18,20 @@ package edu.eci.arsw.lottoweb.modelo;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
+@ApiModel("Model Viaje")
 public class Viaje {
 
+    @ApiModelProperty(value = "Identificador del viaje", required = true)
     private int id;
+    @ApiModelProperty(value = "Duracion del viaje", required = true)
     private int duracion;
+    @ApiModelProperty(value = "Precio del viaje", required = true)
     private int precio;
+    @ApiModelProperty(value = "Tipo de viaje", required = true)
     private String tipo;
+    @ApiModelProperty(value = "Indicaciones del viaje", required = true)
     private String indicaciones;
+    @ApiModelProperty(value = "Cliente del viaje", required = true)
     private Cliente cliente;
 
     public Viaje(int id, int duracion, int precio, String tipo, String indicaciones){
@@ -29,5 +40,45 @@ public class Viaje {
         this.precio=precio;
         this.tipo=tipo;
         this.indicaciones=indicaciones;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getIndicaciones() {
+        return indicaciones;
+    }
+
+    public void setIndicaciones(String indicaciones) {
+        this.indicaciones = indicaciones;
     }
 }

@@ -1,13 +1,16 @@
-package edu.eci.arsw.lottoweb.modelo;
+package edu.eci.arsw.lottoweb.filtro;
 
-import io.swagger.annotations.ApiModelProperty;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import org.springframework.web.filter.OncePerRequestFilter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
  * ---------------------------------------------------------------------------------------------------------------------------
- * 													CLASE: ViajeEnCurso
+ * 													CLASE: Filtro
  * ---------------------------------------------------------------------------------------------------------------------------
  *
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -18,31 +21,9 @@ import java.util.List;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
-public class ViajeEnCurso {
-
-    @ApiModelProperty(value = "Identificador del viaje en curso", required = true)
-    private int id;
-    @ApiModelProperty(value = "Vehiculo del viaje en curso", required = true)
-    private Vehiculo vehiculo;
-
-
-    public ViajeEnCurso(){
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Vehiculo getVehiculo() {
-        return vehiculo;
-    }
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+public class Filtro extends OncePerRequestFilter{
+    @Override
+    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+        filterChain.doFilter(httpServletRequest,httpServletResponse);
     }
 }

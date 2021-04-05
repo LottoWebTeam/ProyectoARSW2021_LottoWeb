@@ -61,4 +61,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new User(correo,password,enabled,accountNotExpired,credentialsNotExpired,accountNotLocked, authorities);
     }
+
 }

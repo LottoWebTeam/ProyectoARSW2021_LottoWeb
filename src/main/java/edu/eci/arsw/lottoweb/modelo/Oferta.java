@@ -34,6 +34,35 @@ public class Oferta {
         return precio;
     }
 
-    public void modificarOferta(){}
+    public void setOferta(int precio) {
+        this.precio = precio;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Viaje getViaje(){
+        return Viaje;
+    }
+
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
+    }
+
+    public ArrayList<Conductor> getConductores(){
+        return conductores;
+    }
+
+    public void setConductores(ArrayList<Conductor> conductores) {
+        this.conductores = conductores;
+    }
+
+
+
 
 }

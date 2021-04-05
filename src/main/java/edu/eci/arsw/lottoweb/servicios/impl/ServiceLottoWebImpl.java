@@ -1,6 +1,8 @@
 package edu.eci.arsw.lottoweb.servicios.impl;
 
-//import edu.eci.arsw.data.dao.*;
+import edu.eci.arsw.lottoweb.persistencia.*;
+import edu.eci.arsw.lottoweb.persistencia.mybatis.*;
+import edu.eci.arsw.lottoweb.persistencia.mybatis.Mappers.*;
 import edu.eci.arsw.lottoweb.modelo.*;
 import edu.eci.arsw.lottoweb.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;

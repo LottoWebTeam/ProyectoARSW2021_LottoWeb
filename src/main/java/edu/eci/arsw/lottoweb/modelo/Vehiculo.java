@@ -1,5 +1,11 @@
 package edu.eci.arsw.lottoweb.modelo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -14,12 +20,18 @@ package edu.eci.arsw.lottoweb.modelo;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
+@ApiModel("Model Vehiculo")
 public class Vehiculo {
 
+    @ApiModelProperty(value = "Id del vehiculo", required = true)
     private int id;
+    @ApiModelProperty(value = "Marca del vehiculo", required = true)
     private String marca;
+    @ApiModelProperty(value = "Tipo de vehiculo", required = true)
     private String tipo;
+    @ApiModelProperty(value = "Modelo del vehiculo", required = true)
     private int modelo;
+    @ApiModelProperty(value = "Placa del vehiculo", required = true)
     private String placa;
 
     public Vehiculo(int id, String marca, String tipo, int modelo, String placa){
@@ -28,5 +40,45 @@ public class Vehiculo {
         this.tipo=tipo;
         this.modelo=modelo;
         this.placa=placa;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(int modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
