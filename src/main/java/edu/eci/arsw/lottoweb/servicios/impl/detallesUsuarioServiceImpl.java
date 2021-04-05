@@ -4,6 +4,7 @@ import edu.eci.arsw.easycare.model.Cliente;
 import edu.eci.arsw.easycare.model.Paseador;
 import edu.eci.arsw.easycare.service.EasyCareService;
 import edu.eci.arsw.easycare.service.ExceptionServiciosEasyCare;
+import edu.eci.arsw.lottoweb.modelo.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;

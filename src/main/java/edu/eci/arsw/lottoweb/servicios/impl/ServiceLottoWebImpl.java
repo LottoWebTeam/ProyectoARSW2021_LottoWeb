@@ -4,6 +4,7 @@ import edu.eci.arsw.lottoweb.persistencia.*;
 import edu.eci.arsw.lottoweb.persistencia.mybatis.*;
 import edu.eci.arsw.lottoweb.persistencia.mybatis.Mappers.*;
 import edu.eci.arsw.lottoweb.modelo.*;
+import edu.eci.arsw.lottoweb.persistencia.*;
 import edu.eci.arsw.lottoweb.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -32,24 +33,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Service
 @Component
 @Primary
-public class ServiceLottoWebImpl implements ServiceLottoWeb{
+public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
 
     @Autowired
-    private ClienteDAO cliente;
+    private ClienteDao cliente;
     @Autowired
-    private ConductorDAO conductor;
+    private ConductorDao conductor;
     @Autowired
-    private OfertaDAO oferta;
+    private OfertaDao oferta;
     @Autowired
-    private RutaDAO ruta;
+    private RutaDao ruta;
     @Autowired
-    private UbicacionDAO ubicacion;
+    private UbicacionDao ubicacion;
     @Autowired
-    private VehiculoDAO vehiculo;
+    private VehiculoDao vehiculo;
     @Autowired
-    private ViajeDAO viaje;
+    private ViajeDao viaje;
     @Autowired
-    private ViajeEnCursoDAO viajeEnCurso;
+    private ViajeEnCursoDao viajeEnCurso;
 
     private ConcurrentHashMap<Integer, List<Oferta>> ofertas = new ConcurrentHashMap<>();
 

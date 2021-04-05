@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-class MyBatisClienteDao implements ClienteDao {
+public class MyBatisClienteDao implements ClienteDao {
 
     @Autowired
     private ClienteMapper cliente;

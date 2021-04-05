@@ -1,6 +1,10 @@
 package edu.eci.arsw.lottoweb.modelo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -16,24 +20,39 @@ import java.util.ArrayList;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
+
 public class Oferta {
 
     private int id;
-    private int precio;
-    private ArrayList<Conductor> conductores;
+    private int subasta;
+    private Cliente creador;
     private Viaje viaje;
+    List<Conductor> conductores = new ArrayList<>();
 
-    public Oferta(int id, int precio,Viaje viaje){
-        this.id=id;
-        this.precio=precio;
-        this.viaje=viaje;
-        conductores= new ArrayList<>();
+    public void Oferta(){
+
+    }
+    public int getId() {
+        return id;
     }
 
-    public int getPrecio(){
-        return precio;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public int getSubasta() {
+        return subasta;
+    }
+
+    public void setSubasta(int oferta) {
+        this.subasta = oferta;
+    }
+
+    public Cliente getCreador() {
+        return creador;
+    }
+
+<<<<<<< HEAD
     public void setOferta(int precio) {
         this.precio = precio;
     }
@@ -64,5 +83,25 @@ public class Oferta {
 
 
 
+=======
+    public void setCreador(Cliente creador) {
+        this.creador = creador;
+    }
+>>>>>>> 9d2d5f285bef15a6d7799c074aee012fdf1e2632
 
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje idViaje) {
+        this.viaje = idViaje;
+    }
+
+    public List<Conductor> getConductores() {
+        return conductores;
+    }
+
+    public void setConductores(List<Conductor> conductores) {
+        this.conductores = conductores;
+    }
 }
