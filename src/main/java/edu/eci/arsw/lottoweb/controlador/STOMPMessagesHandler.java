@@ -42,7 +42,7 @@ public class STOMPMessagesHandler {
     private Timer timer;
     private TimerTask timerTask;
     private ConcurrentHashMap<String, Subasta> sesionesSubastaCreadores = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, List<Object>> sesionesSubastaPaseadores = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, List<Object>> sesionesSubastaconductores = new ConcurrentHashMap<>();
 
     @MessageMapping("/nuevaSubasta")
     public void nuevaSubastaEvent(String datos, @Header("simpSessionId") String sessionId){
@@ -59,23 +59,23 @@ public class STOMPMessagesHandler {
             cliente.setNombre(json.getJSONObject("subasta").getJSONObject("creador").getString("nombre"));
             System.out.println(json.getJSONObject("subasta").getJSONObject("creador")+" >>>>>>>>>>>>>>>");
             Ruta ruta = new Ruta();
-            Paseo paseo = new Paseo();
-            paseo.setRuta(ruta);
-            paseo.setDuracion(json.getJSONObject("subasta").getJSONObject("paseo").getInt("duracion"));
-            paseo.setEspecificaciones(json.getJSONObject("subasta").getJSONObject("paseo").getString("especificaciones"));
-            paseo.setPrecio(json.getJSONObject("subasta").getJSONObject("paseo").getInt("precio"));
+            Viaje viaje = new Viaje();
+            viaje.setRuta(ruta);
+            viaje.setDuracion(json.getJSONObject("subasta").getJSONObject("paseo").getInt("duracion"));
+            viaje.setEspecificaciones(json.getJSONObject("subasta").getJSONObject("paseo").getString("especificaciones"));
+            viaje.setPrecio(json.getJSONObject("subasta").getJSONObject("paseo").getInt("precio"));
             subasta.setCreador(cliente);
-            subasta.setPaseo(paseo);
-            subasta.setNumMascotas(json.getJSONObject("subasta").getInt("numMascotas"));
-            subasta.setPermitirMasMascotas(json.getJSONObject("subasta").getBoolean("permitirMasMascotas"));
+            subasta.setViaje(viaje);
+            subasta.setNumVehiculos(json.getJSONObject("subasta").getInt("NumVehiculos"));
+            subasta.setPermitirMasVehiculos(json.getJSONObject("subasta").getBoolean("PermitirMasVehiculos"));
             String latitud = String.valueOf(json.getDouble("latitud"));
             String longitud = String.valueOf(json.getDouble("longitud"));
             this.sesionesSubastaCreadores.put(sessionId,subasta);
             this.serviceLottoWeb.saveSubasta(subasta, latitud, longitud);
             this.simpMessagingTemplate.convertAndSend("/topic/subastas",subasta);
             this.serviceLottoWeb.addSubasta(subasta);
-        } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
-            exceptionServiciosEasyCare.printStackTrace();
+        } catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb) {
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 
@@ -92,32 +92,32 @@ public class STOMPMessagesHandler {
     }
 
     @MessageMapping("/subasta.{numSubasta}")
-    public void subastaEvent(Paseador paseador, @DestinationVariable int numSubasta, @Header("simpSessionId") String sessionId){
+    public void subastaEvent(Conductor conductor, @DestinationVariable int numSubasta, @Header("simpSessionId") String sessionId){
         try {
             List par = new ArrayList();
-            par.add(numSubasta); par.add(paseador);
-            this.sesionesSubastaPaseadores.put(sessionId,par);
-            System.out.println(paseador.getUbicacion().getLatitud() + " }}}}}}}}}}}}}}}}}}}}}}}}}");
+            par.add(numSubasta); par.add(conductor);
+            this.sesionesSubastaconductores.put(sessionId,par);
+            System.out.println(conductor.getUbicacion().getLatitud() + " }}}}}}}}}}}}}}}}}}}}}}}}}");
             Subasta subasta = new Subasta();
             subasta.setId(numSubasta);
-            this.serviceLottoWeb.entrarASubasta(paseador, subasta);
-            this.simpMessagingTemplate.convertAndSend("/topic/subasta."+numSubasta, paseador);
-        } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
-            exceptionServiciosEasyCare.printStackTrace();
+            this.serviceLottoWeb.entrarASubasta(conductor, subasta);
+            this.simpMessagingTemplate.convertAndSend("/topic/subasta."+numSubasta, conductor);
+        } catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb) {
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 
     @MessageMapping("/salirsubasta.{numSubasta}")
-    public void salirSubastaEvent(Paseador paseador, @DestinationVariable int numSubasta, @Header("simpSessionId") String sessionId){
+    public void salirSubastaEvent(Conductor conductor, @DestinationVariable int numSubasta, @Header("simpSessionId") String sessionId){
         try{
-            this.sesionesSubastaPaseadores.remove(sessionId);
-            System.out.println("eliminando paseador de subasta: "+numSubasta);
+            this.sesionesSubastaconductores.remove(sessionId);
+            System.out.println("eliminando conductor de subasta: "+numSubasta);
             Subasta subasta = new Subasta();
             subasta.setId(numSubasta);
-            this.serviceLottoWeb.salirDeSubasta(paseador,subasta);
-            this.simpMessagingTemplate.convertAndSend("/topic/eliminarpaseador/subasta."+numSubasta, paseador);
-        }catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare){
-            exceptionServiciosEasyCare.printStackTrace();
+            this.serviceLottoWeb.salirDeSubasta(conductor,subasta);
+            this.simpMessagingTemplate.convertAndSend("/topic/eliminarconductor/subasta."+numSubasta, conductor);
+        }catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb){
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 
@@ -128,44 +128,44 @@ public class STOMPMessagesHandler {
             JSONObject json = new JSONObject(datos);
             Subasta subasta = new Subasta();
             subasta.setId(json.getJSONObject("subasta").getInt("id"));
-            Paseador paseador = this.serviceLottoWeb.getPaseador(json.getJSONObject("ofertor").getString("correo"));
+            Conductor conductor = this.serviceLottoWeb.getconductor(json.getJSONObject("ofertor").getString("correo"));
             int oferta = json.getInt("oferta");
-            this.serviceLottoWeb.agregarOfertaSubasta(subasta,paseador,oferta);
+            this.serviceLottoWeb.agregarOfertaSubasta(subasta,conductor,oferta);
             this.simpMessagingTemplate.convertAndSend("/topic/agregaroferta/subasta."+numSubasta,datos);
-        }catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare){
-            exceptionServiciosEasyCare.printStackTrace();
+        }catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb){
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 
-    @MessageMapping("/elegirPaseador/{idSubasta}/{lat}/{lng}")
-    public void aceptarOferta(Paseador paseadorSeleccionado, @DestinationVariable int idSubasta, @DestinationVariable double lat, @DestinationVariable double lng){
+    @MessageMapping("/elegirconductor/{idSubasta}/{lat}/{lng}")
+    public void aceptarOferta(Conductor conductorSeleccionado, @DestinationVariable int idSubasta, @DestinationVariable double lat, @DestinationVariable double lng){
         try {
             Subasta sub = this.serviceLottoWeb.getSubastaIniciada(idSubasta);
             System.out.println(this.serviceLottoWeb.getSubastaIniciada(idSubasta)+" &&&&&&&&&&&&&&&&&&&&&&");
-            sub.getPaseadores().forEach(paseador -> {
-                if(paseador.getCorreo().equals(paseadorSeleccionado.getCorreo())){
+            sub.getconductores().forEach(conductor -> {
+                if(conductor.getCorreo().equals(conductorSeleccionado.getCorreo())){
                     System.out.println("(((((((((((((((((((())))))))))))))))))))");
-                    this.simpMessagingTemplate.convertAndSend("/topic/decisionSubasta/"+paseadorSeleccionado.getCorreo(),"{\"seleccionado\" : \"true\", \"lat\" : "+lat+", \"lng\" : "+lng+"}");
+                    this.simpMessagingTemplate.convertAndSend("/topic/decisionSubasta/"+conductorSeleccionado.getCorreo(),"{\"seleccionado\" : \"true\", \"lat\" : "+lat+", \"lng\" : "+lng+"}");
                 }else{
                     System.out.println("++++++++++++++++++++++++++++");
-                    this.simpMessagingTemplate.convertAndSend("/topic/decisionSubasta/"+paseadorSeleccionado.getCorreo(),"{\"seleccionado\" : \"false\"}");
+                    this.simpMessagingTemplate.convertAndSend("/topic/decisionSubasta/"+conductorSeleccionado.getCorreo(),"{\"seleccionado\" : \"false\"}");
                 }
             });
             this.simpMessagingTemplate.convertAndSend("/topic/subastas/cerrar", sub);
             this.serviceLottoWeb.cerrarSubasta(idSubasta);
-        } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
-            exceptionServiciosEasyCare.printStackTrace();
+        } catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb) {
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 
-    @MessageMapping("/actualizarUbicacionPaseador/{lat}/{lng}")
-    public void actualizarUbicacionPaseador(Subasta subasta, @DestinationVariable double lat, @DestinationVariable double lng){
+    @MessageMapping("/actualizarUbicacionconductor/{lat}/{lng}")
+    public void actualizarUbicacionconductor(Subasta subasta, @DestinationVariable double lat, @DestinationVariable double lng){
         this.simpMessagingTemplate.convertAndSend("/topic/actualizarUbicacion."+subasta.getCreador().getCorreo(), "{\"lat\" : "+lat+", \"lng\" : "+lng+" }");
     }
 
     @MessageMapping("/actualizarUbicacionCliente/{lat}/{lng}/{subasta}")
-    public void actualizarUbicacionCliente(Paseador paseador, @DestinationVariable double lat, @DestinationVariable double lng, @DestinationVariable int subasta){
-        this.simpMessagingTemplate.convertAndSend("/topic/actualizarUbicacion."+paseador.getCorreo(), "{\"lat\" : "+lat+", \"lng\" : "+lng+", \"subasta\" : "+subasta+" }");
+    public void actualizarUbicacionCliente(Conductor conductor, @DestinationVariable double lat, @DestinationVariable double lng, @DestinationVariable int subasta){
+        this.simpMessagingTemplate.convertAndSend("/topic/actualizarUbicacion."+conductor.getCorreo(), "{\"lat\" : "+lat+", \"lng\" : "+lng+", \"subasta\" : "+subasta+" }");
     }
 
     @MessageMapping("/cancelarPaseo")
@@ -203,16 +203,16 @@ public class STOMPMessagesHandler {
                 this.simpMessagingTemplate.convertAndSend("/topic/cerrar/subasta."+id,
                         this.sesionesSubastaCreadores.get(event.getSessionId()));
                 this.sesionesSubastaCreadores.remove(event.getSessionId());
-            }else if (this.sesionesSubastaPaseadores.get(event.getSessionId()) != null){
-                int numSubasta = (Integer) this.sesionesSubastaPaseadores.get(event.getSessionId()).get(0);
-                Paseador paseador = (Paseador)this.sesionesSubastaPaseadores.get(event.getSessionId()).get(1);
+            }else if (this.sesionesSubastaconductores.get(event.getSessionId()) != null){
+                int numSubasta = (Integer) this.sesionesSubastaconductores.get(event.getSessionId()).get(0);
+                Conductor conductor = (Conductor)this.sesionesSubastaconductores.get(event.getSessionId()).get(1);
                 Subasta subasta = this.serviceLottoWeb.getSubasta(numSubasta);
-                this.serviceLottoWeb.salirDeSubasta(paseador,subasta);
-                this.simpMessagingTemplate.convertAndSend("/topic/eliminarpaseador/subasta."+numSubasta, paseador);
+                this.serviceLottoWeb.salirDeSubasta(conductor,subasta);
+                this.simpMessagingTemplate.convertAndSend("/topic/eliminarconductor/subasta."+numSubasta, conductor);
                 this.simpMessagingTemplate.convertAndSend("/topic/cancelarPaseo."+subasta.getCreador().getCorreo(), subasta);
             }
-        } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
-            exceptionServiciosEasyCare.printStackTrace();
+        } catch (ExceptionServiciosLottoWeb ExceptionServiciosLottoWeb) {
+            ExceptionServiciosLottoWeb.printStackTrace();
         }
     }
 

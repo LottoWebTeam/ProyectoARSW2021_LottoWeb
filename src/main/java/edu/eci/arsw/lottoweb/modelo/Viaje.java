@@ -42,6 +42,10 @@ public class Viaje {
         this.indicaciones=indicaciones;
     }
 
+    public Viaje() {
+        
+    }
+
     public int getId() {
         return id;
     }
@@ -80,5 +84,16 @@ public class Viaje {
 
     public void setIndicaciones(String indicaciones) {
         this.indicaciones = indicaciones;
+    }
+
+    public void setRuta(Ruta ruta) {
+    }
+
+    public void setEspecificaciones(String string) {
+    }
+
+    public Ruta getRuta() {
+        Ruta ruta= new Ruta();
+        return ruta;
     }
 }

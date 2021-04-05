@@ -78,6 +78,11 @@ public class MyBatisOfertaDao implements OfertaDao {
         this.oferta.updateOferta(oferta);
     }
 
+    @Override
+    public void guardar(Oferta oferta) {
+
+    }
+
     //SET AND GETTERS
     public void setOferta(OfertaMapper oferta) {
         this.oferta = oferta;

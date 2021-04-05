@@ -1,5 +1,6 @@
 package edu.eci.arsw.lottoweb.controlador;
 
+import edu.eci.arsw.lottoweb.modelo.*;
 import edu.eci.arsw.lottoweb.servicios.ServiceLottoWeb;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -72,7 +73,6 @@ public class ControladorVehiculos {
     @ApiOperation(value = "Permite actualizar la vehiculo", notes = "No devuelve algún valor")
     public ResponseEntity<?> actualizarVehiculo(@Valid @RequestBody Vehiculo vehiculo){
         try {
-            System.out.println(vehiculo.getNombre());
             lottowebService.updateVehiculo(vehiculo);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e){

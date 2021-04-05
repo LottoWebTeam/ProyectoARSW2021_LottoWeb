@@ -2,6 +2,7 @@ package edu.eci.arsw.lottoweb.persistencia.mybatis;
 
 
 import edu.eci.arsw.lottoweb.modelo.Cliente;
+import edu.eci.arsw.lottoweb.modelo.Conductor;
 import edu.eci.arsw.lottoweb.persistencia.ClienteDao;
 import edu.eci.arsw.lottoweb.persistencia.PersistenceException;
 import edu.eci.arsw.lottoweb.persistencia.mybatis.Mappers.ClienteMapper;
@@ -62,6 +63,11 @@ public class MyBatisClienteDao implements ClienteDao {
     @Override
     public void updateCliente(Cliente cliente) throws PersistenceException {
         this.cliente.updateCliente(cliente);
+    }
+
+    @Override
+    public void updateCliente(Conductor creador) {
+
     }
 
 

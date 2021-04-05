@@ -45,13 +45,8 @@ public class ControladorLottoWeb {
 
     @GetMapping("")
     @ApiOperation(value = "Obtener todos los clientes",notes = "retorna todos los clientes")
-    public ResponseEntity<?> getClientes(){
-        try {
-            return new ResponseEntity<>(lottoWebService.getAllClientes(), HttpStatus.ACCEPTED);
-        } catch (ExceptionServiciosLottoWeb e) {
-            e.printStackTrace();
-            return null;
-        }
+    public ResponseEntity<?> getClientes() throws ExceptionServiciosLottoWeb {
+        return new ResponseEntity<>(lottoWebService.getAllClientes(), HttpStatus.ACCEPTED);
     }
 
 
@@ -145,7 +140,7 @@ public class ControladorLottoWeb {
     }
 
     @PostMapping("/register/{correo}/{password}/{nombre}/{cedula}/{telefono}")
-    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable String telefono){
+    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable int cedula, @PathVariable int telefono){
         try{
             System.out.println("yaaaaaaaaaaaaaaaaaaaaaaaaa");
             Cliente cliente = new Cliente();

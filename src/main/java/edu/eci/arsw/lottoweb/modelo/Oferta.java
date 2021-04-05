@@ -24,7 +24,7 @@ import java.util.List;
 public class Oferta {
 
     private int id;
-    private int subasta;
+    private Subasta subasta;
     private Cliente creador;
     private Viaje viaje;
     List<Conductor> conductores = new ArrayList<>();
@@ -40,11 +40,11 @@ public class Oferta {
         this.id = id;
     }
 
-    public int getSubasta() {
+    public Subasta getSubasta() {
         return subasta;
     }
 
-    public void setSubasta(int oferta) {
+    public void setSubasta(Subasta oferta) {
         this.subasta = oferta;
     }
 
@@ -52,28 +52,19 @@ public class Oferta {
         return creador;
     }
 
-<<<<<<< HEAD
-    public void setOferta(int precio) {
-        this.precio = precio;
-    }
-
-    public int getId(){
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setOferta(Subasta subasta) {
+        this.subasta = subasta;
     }
 
     public Viaje getViaje(){
-        return Viaje;
+        return viaje;
     }
 
     public void setViaje(Viaje viaje) {
         this.viaje = viaje;
     }
 
-    public ArrayList<Conductor> getConductores(){
+    public List<Conductor> getConductores(){
         return conductores;
     }
 
@@ -81,27 +72,14 @@ public class Oferta {
         this.conductores = conductores;
     }
 
-
-
-=======
     public void setCreador(Cliente creador) {
         this.creador = creador;
-    }
->>>>>>> 9d2d5f285bef15a6d7799c074aee012fdf1e2632
-
-    public Viaje getViaje() {
-        return viaje;
-    }
-
-    public void setViaje(Viaje idViaje) {
-        this.viaje = idViaje;
-    }
-
-    public List<Conductor> getConductores() {
-        return conductores;
     }
 
     public void setConductores(List<Conductor> conductores) {
         this.conductores = conductores;
+    }
+
+    public void setConductor(Conductor conductor) {
     }
 }

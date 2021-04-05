@@ -1,6 +1,7 @@
 package edu.eci.arsw.lottoweb.configuracion;
 
 import edu.eci.arsw.lottoweb.filtro.Filtro;
+import edu.eci.arsw.lottoweb.servicios.impl.JwtAuthorizacionFiltro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +42,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticated();
-        http.addFilter(jwtAuthorizationFilter());
+        http.addFilter(jwtAuthorizacionFiltro());
     }
 
     @Bean
@@ -53,8 +54,8 @@ public class Security extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public JwtAuthorizationFilter jwtAuthorizationFilter() throws Exception {
-        return new JwtAuthorizationFilter(this.authenticationManager());
+    public JwtAuthorizacionFiltro jwtAuthorizacionFiltro() throws Exception {
+        return new JwtAuthorizacionFiltro(this.authenticationManager());
     }
 
 }

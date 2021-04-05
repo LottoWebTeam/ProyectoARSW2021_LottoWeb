@@ -29,16 +29,6 @@ public interface ServiceLottoWeb {
 
     void saveCliente(Cliente cliente) throws ExceptionServiciosLottoWeb;
 
-    Mascota getMascota(int id) throws ExceptionServiciosLottoWeb;
-
-    List<Mascota> getMascotas() throws ExceptionServiciosLottoWeb;
-
-    List<Mascota> getMascotas(String cliente) throws ExceptionServiciosLottoWeb;
-
-    void saveMascota(Mascota mascota) throws ExceptionServiciosLottoWeb;
-
-    void updateMascota(Mascota mascota) throws ExceptionServiciosLottoWeb;
-
     void deleteMascota(int id) throws ExceptionServiciosLottoWeb;
 
     Conductor getConductor(String documento, String tdoc) throws ExceptionServiciosLottoWeb;
@@ -52,6 +42,8 @@ public interface ServiceLottoWeb {
     void saveConductor(Conductor conductor) throws ExceptionServiciosLottoWeb;
 
     Viaje getPaseo(int id) throws ExceptionServiciosLottoWeb;
+
+    Viaje getViaje(int id) throws ExceptionServiciosLottoWeb;
 
     List<Viaje> getViajes() throws ExceptionServiciosLottoWeb;
 
@@ -86,4 +78,24 @@ public interface ServiceLottoWeb {
     void actualizarSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
 
     void actualizarConductor(Conductor conductor) throws ExceptionServiciosLottoWeb;
+
+    Object getAllClientes();
+
+    Object getVehiculos(String correo);
+
+    Object getVehiculos();
+
+    Object getVehiculo(int id);
+
+    void saveVehiculo(Vehiculo vehiculo);
+
+    void updateVehiculo(Vehiculo vehiculo);
+
+    void deleteVehiculo(int id);
+
+    Object getPaseos();
+
+    Conductor getconductor(String string);
+
+    void solicitarServicio(Cliente cliente, Oferta oferta) throws ExceptionServiciosLottoWeb;
 }

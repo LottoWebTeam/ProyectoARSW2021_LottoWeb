@@ -36,7 +36,7 @@ public class detallesUsuarioServiceImpl implements UserDetailsService {
     @Autowired
     private final ServiceLottoWeb serviceLottoWeb;
 
-    public UserDetailsServiceImpl(ServiceLottoWeb serviceLottoWeb) {
+    public detallesUsuarioServiceImpl(ServiceLottoWeb serviceLottoWeb) {
         this.serviceLottoWeb = serviceLottoWeb;
     }
 
@@ -54,7 +54,7 @@ public class detallesUsuarioServiceImpl implements UserDetailsService {
                 return userBuilder(ps.getCorreo(), ps.getPassword(), new BCryptPasswordEncoder().encode(ps.getPassword()),"paseador");
             }
             throw new UsernameNotFoundException("Usuario no valido");
-        }catch (ExceptionServiciosEasyCare e){
+        }catch (ExceptionServiciosLottoWeb e){
             System.out.println("malllllllllllllllll");
             throw new UsernameNotFoundException("Usuario no valido");
         }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import javax.validation.constraints.NotNull;
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -53,16 +52,17 @@ public class Cliente implements Serializable{
         viajes= new ArrayList<Viaje>();
         ofertas= new ArrayList<Oferta>();
     }
+    public Cliente(){}
 
     public Cliente getCliente(String correo){
         return this;
     }
 
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 
@@ -82,11 +82,7 @@ public class Cliente implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getCorreo() {
-
-
     public String getCorreo(){
-
         return correo;
     }
 
@@ -94,11 +90,11 @@ public class Cliente implements Serializable{
         this.correo = correo;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -132,5 +128,11 @@ public class Cliente implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setDocumento(String string) {
+    }
+
+    public void setTelefono(String string) {
     }
 }

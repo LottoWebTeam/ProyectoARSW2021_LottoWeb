@@ -34,6 +34,10 @@ public class Ruta {
         this.puntoFinal=puntoFinal;
     }
 
+    public Ruta() {
+
+    }
+
     public int getId() {
         return id;
     }
@@ -56,5 +60,9 @@ public class Ruta {
 
     public void setPuntoFinal(String puntoFinal) {
         this.puntoFinal = puntoFinal;
+    }
+
+    public Ruta getRuta() {
+        return this;
     }
 }

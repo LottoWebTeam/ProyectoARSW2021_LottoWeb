@@ -33,6 +33,8 @@ public class Vehiculo {
     private int modelo;
     @ApiModelProperty(value = "Placa del vehiculo", required = true)
     private String placa;
+    @ApiModelProperty(value = "Ubicacion del vehiculo", required = true)
+    private Ubicacion ubicacion;
 
     public Vehiculo(int id, String marca, String tipo, int modelo, String placa){
         this.id=id;
@@ -80,5 +82,10 @@ public class Vehiculo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
     }
 }

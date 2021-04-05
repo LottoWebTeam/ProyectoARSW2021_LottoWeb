@@ -1,6 +1,7 @@
 package edu.eci.arsw.lottoweb.persistencia;
 
 import edu.eci.arsw.lottoweb.modelo.Cliente;
+import edu.eci.arsw.lottoweb.modelo.Conductor;
 
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface ClienteDao {
 
     void updateCliente(Cliente cliente) throws PersistenceException;
 
+    void updateCliente(Conductor creador);
 }

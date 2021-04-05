@@ -20,4 +20,6 @@ public interface OfertaDao {
     void cerrarOferta(int id) throws PersistenceException;
 
     void updateOferta(Oferta oferta) throws PersistenceException;
+
+    void guardar(Oferta oferta);
 }

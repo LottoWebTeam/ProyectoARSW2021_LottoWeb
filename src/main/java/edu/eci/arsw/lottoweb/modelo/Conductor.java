@@ -58,16 +58,17 @@ public class Conductor implements Serializable {
         viajes= new ArrayList<Viaje>();
         ofertas= new ArrayList<Oferta>();
     }
+    public Conductor(){}
 
-    public Cliente getCliente(String correo){
+    public Conductor getCliente(String correo){
         return this;
     }
 
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 
@@ -95,23 +96,23 @@ public class Conductor implements Serializable {
         this.correo = correo;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    public String getCalificacion() {
+    public int getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(String calificacion) {
+    public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
 
-    public String getVehiculoServicio() {
+    public Vehiculo getVehiculoServicio() {
         return vehiculoServicio;
     }
 
@@ -141,5 +142,9 @@ public class Conductor implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Ubicacion getUbicacion() {
+        return vehiculoServicio.getUbicacion();
     }
 }
