@@ -1,7 +1,7 @@
 package edu.eci.arsw.lottoweb.controlador;
 
 import edu.eci.arsw.easycare.model.Paseo;
-import edu.eci.arsw.easycare.service.EasyCareService;
+import edu.eci.arsw.easycare.service.ServiceLottoWeb;
 import edu.eci.arsw.easycare.service.impl.JwtService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,20 +29,20 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "servicio Paseos")
 public class ControladorViajes {
     @Autowired
-    private final EasyCareService easyCareService;
+    private final ServiceLottoWeb serviceLottoWeb;
 
     @Autowired
     private JwtService jwtService;
 
-    public PaseosController(EasyCareService easyCareService) {
-        this.easyCareService = easyCareService;
+    public PaseosController(ServiceLottoWeb serviceLottoWeb) {
+        this.serviceLottoWeb = serviceLottoWeb;
     }
 
     @GetMapping("/")
     @ApiOperation(value = "Obtiene todos los paseos",notes = "devuelve todos los paseos")
     public ResponseEntity<?> getPaseos(){
         try {
-            return new ResponseEntity<>(easyCareService.getPaseos(), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(serviceLottoWeb.getPaseos(), HttpStatus.ACCEPTED);
         }catch (Exception e){
             return new ResponseEntity<>("No existe registro de paseos", HttpStatus.NOT_FOUND);
         }
@@ -52,7 +52,7 @@ public class ControladorViajes {
     @ApiOperation(value = "Encuentra un paseo",notes = "devuelve un paseo por id")
     public ResponseEntity<?> getPaseo(@PathVariable int id){
         try {
-            return new ResponseEntity<>(easyCareService.getPaseo(id), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(serviceLottoWeb.getPaseo(id), HttpStatus.ACCEPTED);
         }catch (Exception e){
             return new ResponseEntity<>("El paseo solicitado no existe", HttpStatus.NOT_FOUND);
         }

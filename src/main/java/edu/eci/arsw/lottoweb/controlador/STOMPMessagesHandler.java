@@ -37,7 +37,7 @@ public class STOMPMessagesHandler {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
     @Autowired
-    private EasyCareService easyCareService;
+    private ServiceLottoWeb serviceLottoWeb;
 
     private Timer timer;
     private TimerTask timerTask;
@@ -71,9 +71,9 @@ public class STOMPMessagesHandler {
             String latitud = String.valueOf(json.getDouble("latitud"));
             String longitud = String.valueOf(json.getDouble("longitud"));
             this.sesionesSubastaCreadores.put(sessionId,subasta);
-            this.easyCareService.saveSubasta(subasta, latitud, longitud);
+            this.serviceLottoWeb.saveSubasta(subasta, latitud, longitud);
             this.simpMessagingTemplate.convertAndSend("/topic/subastas",subasta);
-            this.easyCareService.addSubasta(subasta);
+            this.serviceLottoWeb.addSubasta(subasta);
         } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
             exceptionServiciosEasyCare.printStackTrace();
         }
@@ -82,8 +82,8 @@ public class STOMPMessagesHandler {
     @MessageMapping("/cerrarSubasta.{numSubasta}")
     public void cerrarSubastaEvent(@DestinationVariable int numSubasta){
         try{
-            Subasta sub = this.easyCareService.getSubasta(numSubasta);
-            this.easyCareService.cerrarSubasta(numSubasta);
+            Subasta sub = this.serviceLottoWeb.getSubasta(numSubasta);
+            this.serviceLottoWeb.cerrarSubasta(numSubasta);
             this.simpMessagingTemplate.convertAndSend("/topic/subastas/cerrar", sub);
             this.simpMessagingTemplate.convertAndSend("/topic/cerrar/subasta."+numSubasta, sub);
         }catch (Exception e){
@@ -100,7 +100,7 @@ public class STOMPMessagesHandler {
             System.out.println(paseador.getUbicacion().getLatitud() + " }}}}}}}}}}}}}}}}}}}}}}}}}");
             Subasta subasta = new Subasta();
             subasta.setId(numSubasta);
-            this.easyCareService.entrarASubasta(paseador, subasta);
+            this.serviceLottoWeb.entrarASubasta(paseador, subasta);
             this.simpMessagingTemplate.convertAndSend("/topic/subasta."+numSubasta, paseador);
         } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
             exceptionServiciosEasyCare.printStackTrace();
@@ -114,7 +114,7 @@ public class STOMPMessagesHandler {
             System.out.println("eliminando paseador de subasta: "+numSubasta);
             Subasta subasta = new Subasta();
             subasta.setId(numSubasta);
-            this.easyCareService.salirDeSubasta(paseador,subasta);
+            this.serviceLottoWeb.salirDeSubasta(paseador,subasta);
             this.simpMessagingTemplate.convertAndSend("/topic/eliminarpaseador/subasta."+numSubasta, paseador);
         }catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare){
             exceptionServiciosEasyCare.printStackTrace();
@@ -128,9 +128,9 @@ public class STOMPMessagesHandler {
             JSONObject json = new JSONObject(datos);
             Subasta subasta = new Subasta();
             subasta.setId(json.getJSONObject("subasta").getInt("id"));
-            Paseador paseador = this.easyCareService.getPaseador(json.getJSONObject("ofertor").getString("correo"));
+            Paseador paseador = this.serviceLottoWeb.getPaseador(json.getJSONObject("ofertor").getString("correo"));
             int oferta = json.getInt("oferta");
-            this.easyCareService.agregarOfertaSubasta(subasta,paseador,oferta);
+            this.serviceLottoWeb.agregarOfertaSubasta(subasta,paseador,oferta);
             this.simpMessagingTemplate.convertAndSend("/topic/agregaroferta/subasta."+numSubasta,datos);
         }catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare){
             exceptionServiciosEasyCare.printStackTrace();
@@ -140,8 +140,8 @@ public class STOMPMessagesHandler {
     @MessageMapping("/elegirPaseador/{idSubasta}/{lat}/{lng}")
     public void aceptarOferta(Paseador paseadorSeleccionado, @DestinationVariable int idSubasta, @DestinationVariable double lat, @DestinationVariable double lng){
         try {
-            Subasta sub = this.easyCareService.getSubastaIniciada(idSubasta);
-            System.out.println(this.easyCareService.getSubastaIniciada(idSubasta)+" &&&&&&&&&&&&&&&&&&&&&&");
+            Subasta sub = this.serviceLottoWeb.getSubastaIniciada(idSubasta);
+            System.out.println(this.serviceLottoWeb.getSubastaIniciada(idSubasta)+" &&&&&&&&&&&&&&&&&&&&&&");
             sub.getPaseadores().forEach(paseador -> {
                 if(paseador.getCorreo().equals(paseadorSeleccionado.getCorreo())){
                     System.out.println("(((((((((((((((((((())))))))))))))))))))");
@@ -152,7 +152,7 @@ public class STOMPMessagesHandler {
                 }
             });
             this.simpMessagingTemplate.convertAndSend("/topic/subastas/cerrar", sub);
-            this.easyCareService.cerrarSubasta(idSubasta);
+            this.serviceLottoWeb.cerrarSubasta(idSubasta);
         } catch (ExceptionServiciosEasyCare exceptionServiciosEasyCare) {
             exceptionServiciosEasyCare.printStackTrace();
         }
@@ -198,7 +198,7 @@ public class STOMPMessagesHandler {
             if(this.sesionesSubastaCreadores.get(event.getSessionId())!=null){
                 int id = this.sesionesSubastaCreadores.get(event.getSessionId()).getId();
                 System.out.println(event.getSessionId() + " oooooooooooooooooooooo");
-                this.easyCareService.cerrarSubasta(id);
+                this.serviceLottoWeb.cerrarSubasta(id);
                 this.simpMessagingTemplate.convertAndSend("/topic/subastas/cerrar", this.sesionesSubastaCreadores.get(event.getSessionId()));
                 this.simpMessagingTemplate.convertAndSend("/topic/cerrar/subasta."+id,
                         this.sesionesSubastaCreadores.get(event.getSessionId()));
@@ -206,8 +206,8 @@ public class STOMPMessagesHandler {
             }else if (this.sesionesSubastaPaseadores.get(event.getSessionId()) != null){
                 int numSubasta = (Integer) this.sesionesSubastaPaseadores.get(event.getSessionId()).get(0);
                 Paseador paseador = (Paseador)this.sesionesSubastaPaseadores.get(event.getSessionId()).get(1);
-                Subasta subasta = this.easyCareService.getSubasta(numSubasta);
-                this.easyCareService.salirDeSubasta(paseador,subasta);
+                Subasta subasta = this.serviceLottoWeb.getSubasta(numSubasta);
+                this.serviceLottoWeb.salirDeSubasta(paseador,subasta);
                 this.simpMessagingTemplate.convertAndSend("/topic/eliminarpaseador/subasta."+numSubasta, paseador);
                 this.simpMessagingTemplate.convertAndSend("/topic/cancelarPaseo."+subasta.getCreador().getCorreo(), subasta);
             }
