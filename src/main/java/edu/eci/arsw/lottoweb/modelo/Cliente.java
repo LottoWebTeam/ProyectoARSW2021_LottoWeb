@@ -40,6 +40,10 @@ public class Cliente {
         ofertas= new ArrayList<Oferta>();
     }
 
+    public Cliente() {
+
+    }
+
     public String getCorreo(){
         return correo;
     }
