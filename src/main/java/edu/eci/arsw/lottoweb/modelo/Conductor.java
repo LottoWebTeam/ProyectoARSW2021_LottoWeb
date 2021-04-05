@@ -26,7 +26,7 @@ import java.io.Serializable;
 public class Conductor implements Serializable {
 
     @ApiModelProperty(value = "el documento del conductor (Hace parte del la primaria compuesta)", required = true)
-    private int documento;
+    private String documento;
     @ApiModelProperty(value = "el tipo de documeto del conductor (Hace parte de la primaria compuesta)", required = true)
     private String tipoDocumento;
     @ApiModelProperty(value = "el nombre del conductor", required = true)
@@ -46,7 +46,7 @@ public class Conductor implements Serializable {
     @ApiModelProperty(value = "Ofertas capturadas por el conductor", required = true)
     private ArrayList<Oferta> ofertas;
 
-    public Conductor(int documento, String tipoDocumento, String nombre, String correo, int telefono, String password){
+    public Conductor(String documento, String tipoDocumento, String nombre, String correo, int telefono, String password){
         this.documento=documento;
         this.tipoDocumento=tipoDocumento;
         this.nombre=nombre;
@@ -64,11 +64,11 @@ public class Conductor implements Serializable {
         return this;
     }
 
-    public int getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
 
