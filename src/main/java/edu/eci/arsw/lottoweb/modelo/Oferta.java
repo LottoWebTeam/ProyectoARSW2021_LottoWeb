@@ -82,4 +82,8 @@ public class Oferta {
 
     public void setConductor(Conductor conductor) {
     }
+
+    public boolean getPermitirMasVehiculos() {
+        return true;
+    }
 }

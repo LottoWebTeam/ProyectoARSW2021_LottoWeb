@@ -1,11 +1,8 @@
 package edu.eci.arsw.lottoweb.servicios.impl;
 
 import edu.eci.arsw.lottoweb.persistencia.*;
-import edu.eci.arsw.lottoweb.persistencia.mybatis.*;
-import edu.eci.arsw.lottoweb.persistencia.mybatis.Mappers.*;
+import edu.eci.arsw.lottoweb.persistencia.PersistenceException;
 import edu.eci.arsw.lottoweb.modelo.*;
-import edu.eci.arsw.lottoweb.persistencia.*;
-import edu.eci.arsw.lottoweb.persistencia.mybatis.PersistenceException;
 import edu.eci.arsw.lottoweb.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -42,8 +39,6 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
     private ConductorDao conductor;
     @Autowired
     private OfertaDao oferta;
-    @Autowired
-    private SubastaDao subasta;
     @Autowired
     private RutaDao ruta;
     @Autowired
@@ -173,26 +168,39 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
 
     @Override
     public Subasta getSubasta(int id) throws ExceptionServiciosLottoWeb {
-        return this.subasta.getSubasta(id);
+        return null;
     }
 
     @Override
     public List<Subasta> getSubastas() throws ExceptionServiciosLottoWeb {
-        return this.subasta.getSubastas();
+        return null;
     }
 
     @Override
-    public void saveSubasta(Subasta subasta,String latitud, String longitud) throws ExceptionServiciosLottoWeb {
+    public void saveSubasta(Subasta subasta, String latitud, String longitud) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    public Oferta getOferta(int id) throws ExceptionServiciosLottoWeb, PersistenceException {
+        return this.oferta.getOferta(id);
+    }
+
+    public List<Oferta> getOfertas() throws ExceptionServiciosLottoWeb, PersistenceException {
+        return this.oferta.getOfertas();
+    }
+
+    @Override
+    public void saveOferta(Oferta oferta, String latitud, String longitud) throws ExceptionServiciosLottoWeb {
         try {
-            System.out.println(subasta.getPermitirMasVehiculos());
-            subasta.getViaje().setId(this.viaje.nextId());
-            subasta.getViaje().getRuta().setId(this.ruta.nextId());
-            subasta.getViaje().getRuta().setPuntoInicial("lat: "+latitud+", lng: "+longitud);
-            subasta.getViaje().getRuta().setPuntoInicial("lat: "+latitud+", lng: "+longitud);
-            this.ruta.saveRuta(subasta.getViaje().getRuta());
-            this.viaje.save(subasta.getViaje());
-            subasta.setId(this.subasta.nextId());
-            this.subasta.save(subasta);
+            System.out.println(oferta.getPermitirMasVehiculos());
+            oferta.getViaje().setId(this.viaje.nextId());
+            oferta.getViaje().getRuta().setId(this.ruta.nextId());
+            oferta.getViaje().getRuta().setPuntoInicial("lat: "+latitud+", lng: "+longitud);
+            oferta.getViaje().getRuta().setPuntoInicial("lat: "+latitud+", lng: "+longitud);
+            this.ruta.saveRuta(oferta.getViaje().getRuta());
+            this.viaje.save(oferta.getViaje());
+            oferta.setId(this.oferta.nextId());
+            this.oferta.save(oferta);
         } catch (edu.eci.arsw.lottoweb.persistencia.PersistenceException e) {
             e.printStackTrace();
             throw new ExceptionServiciosLottoWeb("no se ha podido realizar la ooperación", (edu.eci.arsw.lottoweb.persistencia.PersistenceException) e);
@@ -200,20 +208,55 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
     }
 
     @Override
-    public Collection<Subasta> getSubastasIniciadas() throws ExceptionServiciosLottoWeb {
+    public Collection<Oferta> getOfertasIniciadas() throws ExceptionServiciosLottoWeb {
+        return null;
+    }
+
+    @Override
+    public Collection<Subasta> getSubastasIniciadas() throws ExceptionServiciosLottoWeb, PersistenceException {
         actualizar();
         Collection<Subasta> s = this.subastas.values();
         return s;
     }
 
     @Override
-    public void actualizar() throws ExceptionServiciosLottoWeb {
-        List<Subasta> s = this.subasta.getSubastas();
-        this.subastas.clear();
-        s.forEach(subasta1 -> {
-            System.out.println(subasta1 + " 66666666666");
-            subastas.put(subasta1.getId(), subasta1);
+    public void actualizar() throws ExceptionServiciosLottoWeb, PersistenceException {
+        List<Oferta> s = this.oferta.getOfertas();
+        this.ofertas.clear();
+        s.forEach(oferta1 -> {
+            System.out.println(oferta1 + " 66666666666");
+            ofertas.put(oferta1.getId(), (List<Oferta>) oferta1);
         });
+    }
+
+    @Override
+    public void addOferta(Oferta oferta) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    @Override
+    public void cerrarOferta(int id) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    @Override
+    public List<Conductor> getConductoresEnOferta(Oferta oferta) throws ExceptionServiciosLottoWeb {
+        return null;
+    }
+
+    @Override
+    public void entrarAOferta(Conductor conductor, Oferta oferta) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    @Override
+    public void salirDeOferta(Conductor conductor, Oferta oferta) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    @Override
+    public List<Oferta> getOfertasOferta(Oferta oferta) throws ExceptionServiciosLottoWeb {
+        return null;
     }
 
     @Override
@@ -224,7 +267,7 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
     @Override
     public void cerrarSubasta(int id) throws ExceptionServiciosLottoWeb {
         System.out.println("CERRANDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-        this.subasta.cerrarSubasta(id);
+        this.oferta.cerrarSubasta(id);
         this.subastas.remove(id);
     }
 
@@ -272,6 +315,11 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
     }
 
     @Override
+    public Subasta getSubastaIniciada(int idSubasta) {
+        return null;
+    }
+
+    @Override
     public void agregarOfertaSubasta(Subasta subasta, Conductor conductor, int oferta) throws ExceptionServiciosLottoWeb {
         Oferta of = new Oferta();
         of.setOferta(subasta);
@@ -292,17 +340,22 @@ public class ServiceLottoWebImpl<ViajeEnCursoDAao> implements ServiceLottoWeb{
     }
 
     @Override
-    public Subasta getSubastaIniciada(int subasta) throws ExceptionServiciosLottoWeb {
-        return this.subastas.get(subasta);
+    public Oferta getOfertaIniciada(int oferta) throws ExceptionServiciosLottoWeb {
+        return (Oferta) this.ofertas.get(oferta);
     }
 
     @Override
     public void actualizarSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb {
+
+    }
+
+    @Override
+    public void actualizarOferta(Oferta oferta) throws ExceptionServiciosLottoWeb {
         try {
-            this.ruta.updateRuta(subasta.getViaje().getRuta());
-            this.viaje.update(subasta.getViaje());
-            this.cliente.updateCliente(subasta.getCreador());
-            this.subasta.updateSubasta(subasta);
+            this.ruta.updateRuta(oferta.getViaje().getRuta());
+            this.viaje.update(oferta.getViaje());
+            this.cliente.updateCliente(oferta.getCreador());
+            this.oferta.updateOferta(oferta);
         } catch (edu.eci.arsw.lottoweb.persistencia.PersistenceException e) {
             e.printStackTrace();
         }

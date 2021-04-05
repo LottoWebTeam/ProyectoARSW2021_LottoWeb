@@ -22,4 +22,6 @@ public interface OfertaDao {
     void updateOferta(Oferta oferta) throws PersistenceException;
 
     void guardar(Oferta oferta);
+
+    void cerrarSubasta(int id);
 }

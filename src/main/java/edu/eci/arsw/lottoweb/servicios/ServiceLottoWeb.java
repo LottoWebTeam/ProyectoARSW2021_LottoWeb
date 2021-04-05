@@ -1,6 +1,8 @@
 package edu.eci.arsw.lottoweb.servicios;
 
 import edu.eci.arsw.lottoweb.modelo.*;
+import edu.eci.arsw.lottoweb.persistencia.PersistenceException;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,33 +51,44 @@ public interface ServiceLottoWeb {
 
 //    void savePaseo(Viaje paseo, String latitud, String longitud) throws ExceptionServiciosLottoWeb;
 
-    Subasta getSubasta(int id) throws ExceptionServiciosLottoWeb;
+    Oferta getOferta(int id) throws ExceptionServiciosLottoWeb, PersistenceException;
 
-    List<Subasta> getSubastas() throws ExceptionServiciosLottoWeb;
+    List<Oferta> getOfertas() throws ExceptionServiciosLottoWeb, PersistenceException;
 
-    void saveSubasta(Subasta subasta,String latitud, String longitud) throws ExceptionServiciosLottoWeb;
+    void saveOferta(Oferta oferta,String latitud, String longitud) throws ExceptionServiciosLottoWeb;
 
-    Collection<Subasta> getSubastasIniciadas() throws ExceptionServiciosLottoWeb;
 
-    void actualizar() throws ExceptionServiciosLottoWeb;
 
-    void addSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
+    Collection<Oferta> getOfertasIniciadas() throws ExceptionServiciosLottoWeb;
 
-    void cerrarSubasta(int id) throws ExceptionServiciosLottoWeb;
+    Collection<Subasta> getSubastasIniciadas() throws ExceptionServiciosLottoWeb, PersistenceException;
 
-    List<Conductor> getConductoresEnSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
+    void actualizar() throws ExceptionServiciosLottoWeb, PersistenceException;
 
-    void entrarASubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
+    void addOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
-    void salirDeSubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
+    void cerrarOferta(int id) throws ExceptionServiciosLottoWeb;
+
+    List<Conductor> getConductoresEnOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
+
+    void entrarAOferta(Conductor conductor, Oferta oferta) throws ExceptionServiciosLottoWeb;
+
+    void salirDeOferta(Conductor conductor, Oferta oferta) throws ExceptionServiciosLottoWeb;
+
+
+
+    List<Oferta> getOfertasOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
     void agregarOfertaSubasta(Subasta subasta, Conductor conductor, int oferta) throws ExceptionServiciosLottoWeb;
 
     List<Oferta> getOfertasSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
 
-    Subasta getSubastaIniciada(int subasta) throws ExceptionServiciosLottoWeb;
+    Oferta getOfertaIniciada(int oferta) throws ExceptionServiciosLottoWeb;
+
 
     void actualizarSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
+
+    void actualizarOferta(Oferta oferta) throws ExceptionServiciosLottoWeb;
 
     void actualizarConductor(Conductor conductor) throws ExceptionServiciosLottoWeb;
 
@@ -98,4 +111,22 @@ public interface ServiceLottoWeb {
     Conductor getconductor(String string);
 
     void solicitarServicio(Cliente cliente, Oferta oferta) throws ExceptionServiciosLottoWeb;
+
+    List<Subasta> getSubastas() throws ExceptionServiciosLottoWeb;
+
+    void saveSubasta(Subasta subasta, String latitud, String longitud) throws ExceptionServiciosLottoWeb;
+
+    void addSubasta(Subasta subasta);
+
+    Subasta getSubasta(int numSubasta) throws ExceptionServiciosLottoWeb;
+
+    void cerrarSubasta(int numSubasta) throws ExceptionServiciosLottoWeb;
+
+    List<Conductor> getConductoresEnSubasta(Subasta subasta) throws ExceptionServiciosLottoWeb;
+
+    void entrarASubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
+
+    void salirDeSubasta(Conductor conductor, Subasta subasta) throws ExceptionServiciosLottoWeb;
+
+    Subasta getSubastaIniciada(int idSubasta);
 }

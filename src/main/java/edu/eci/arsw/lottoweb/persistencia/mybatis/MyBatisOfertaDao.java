@@ -83,6 +83,11 @@ public class MyBatisOfertaDao implements OfertaDao {
 
     }
 
+    @Override
+    public void cerrarSubasta(int id) {
+
+    }
+
     //SET AND GETTERS
     public void setOferta(OfertaMapper oferta) {
         this.oferta = oferta;
