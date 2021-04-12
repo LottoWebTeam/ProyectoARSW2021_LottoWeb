@@ -3,6 +3,7 @@ package edu.eci.arsw.lottoweb.controlador;
 import edu.eci.arsw.lottoweb.modelo.*;
 import edu.eci.arsw.lottoweb.servicios.*;
 import edu.eci.arsw.lottoweb.servicios.impl.*;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,9 +28,8 @@ import java.util.List;
  */
 
 @org.springframework.web.bind.annotation.RestController
-@Controller
-@CrossOrigin("*")
-@RequestMapping({"/api", "/clients"})
+@RequestMapping("/clients")
+@Api(value = "servicio Clientes")
 public class ControladorLottoWeb {
 
     @Autowired
@@ -72,9 +72,9 @@ public class ControladorLottoWeb {
         }
     }
 
-    @GetMapping("/cliente/mascotas")
-    @ApiOperation(value = "Encuentra las mascotas del cliente logueado", notes = "se debe estar logueado con token valido para obtener estas mascotas")
-    public ResponseEntity<?> getMascotas(@RequestHeader("Authorization") String token){
+    @GetMapping("/cliente/vehiculos")
+    @ApiOperation(value = "Encuentra las vehiculos del cliente logueado", notes = "se debe estar logueado con token valido para obtener estas Vehiculos")
+    public ResponseEntity<?> getVehiculos(@RequestHeader("Authorization") String token){
         try{
             String correo = jwtService.user(token);
             if(correo.length() > 0){
@@ -105,7 +105,11 @@ public class ControladorLottoWeb {
     @PostMapping("/login/{correo}/{password}")
     public ResponseEntity<?> authenticateUser(@PathVariable String correo, @PathVariable String password) {
         try{
+            System.out.println(password);
+            System.out.println(correo);
             Cliente cl = lottoWebService.getCliente(correo);
+            System.out.println(cl.getPassword());
+            System.out.println(password);
             Conductor ps = lottoWebService.getConductor(correo);
             if(cl!=null && cl.getPassword().equals(password)){
                 List<String> roles = new ArrayList<>();
@@ -116,7 +120,7 @@ public class ControladorLottoWeb {
             }
             else if(ps != null && ps.getPassword().equals(password)){
                 List<String> roles = new ArrayList<>();
-                roles.add("paseador");
+                roles.add("conductor");
                 return new ResponseEntity<>(jwtService.createToken(correo,roles), HttpStatus.ACCEPTED);
             }
             else{
@@ -135,7 +139,7 @@ public class ControladorLottoWeb {
     }
 
     @PostMapping("/register/{correo}/{password}/{nombre}/{cedula}/{telefono}")
-    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable int telefono){
+    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable String telefono){
         try{
             System.out.println("yaaaaaaaaaaaaaaaaaaaaaaaaa");
             Cliente cliente = new Cliente();

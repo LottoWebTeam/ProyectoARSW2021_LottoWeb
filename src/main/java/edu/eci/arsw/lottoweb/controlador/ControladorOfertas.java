@@ -39,7 +39,7 @@ public class ControladorOfertas {
         try {
             return new ResponseEntity<>(lottowebService.getOferta(id), HttpStatus.ACCEPTED);
         }catch (Exception e){
-            return new ResponseEntity<>("El paseador solicitado no existe", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("El conductor solicitado no existe", HttpStatus.NOT_FOUND);
         }
     }
 
@@ -53,7 +53,7 @@ public class ControladorOfertas {
                 return new ResponseEntity<>("No autorizado",HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
             }
         }catch (Exception e){
-            return new ResponseEntity<>("El paseador solicitado no existe", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("El conductor solicitado no existe", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -66,7 +66,7 @@ public class ControladorOfertas {
             return new ResponseEntity<>(this.lottowebService.getSubastasOferta(oferta1), HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>("El paseador solicitado no existe", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("El conductor solicitado no existe", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

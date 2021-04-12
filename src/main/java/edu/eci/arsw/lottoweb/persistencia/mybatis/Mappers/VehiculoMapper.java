@@ -10,7 +10,7 @@ import java.util.List;
 public interface VehiculoMapper {
 
 
-    @Select("SELECT * FROM Vehiculo")
+    @Select("SELECT * FROM vehiculo")
     List<Vehiculo> getVehiculos();
 
     @Select("SELECT * FROM Vehiculo WHERE doccliente = #{documento} AND tipodoccliente = #{tipoDocumento}")

@@ -2,6 +2,8 @@ package edu.eci.arsw.lottoweb.modelo;
 
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
+
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -17,7 +19,7 @@ import io.swagger.annotations.ApiModel;
  */
 
 @ApiModel("Model Ubicacion")
-public class Ubicacion {
+public class Ubicacion implements Serializable {
 
     private String latitud;
     private String longitud;

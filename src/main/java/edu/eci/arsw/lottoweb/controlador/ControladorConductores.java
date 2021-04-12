@@ -128,7 +128,7 @@ public class ControladorConductores {
     }
 
     @PostMapping("/register/{correo}/{password}/{nombre}/{cedula}/{telefono}")
-    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable int telefono) {
+    public ResponseEntity<?> registrar(@PathVariable String correo, @PathVariable String password, @PathVariable String nombre, @PathVariable String cedula, @PathVariable String telefono) {
         try {
             System.out.println("yaaaaaaaaaaaaaaaaaaaaaaaaa");
             Conductor conductor = new Conductor();
@@ -139,6 +139,7 @@ public class ControladorConductores {
             conductor.setDocumento(cedula);
             conductor.setTelefono(telefono);
             conductor.setCalificacion(0);
+            System.out.println("sera que si");
             lottowebService.saveConductor(conductor);
             List<String> roles = new ArrayList<>();
             roles.add("cliente");
@@ -150,8 +151,8 @@ public class ControladorConductores {
         }
     }
 
-    @GetMapping("/registrarEnSubasta/{oferta}")
-    public ResponseEntity<?> registrarEnSubasta(@RequestHeader("Authorization") String token, @PathVariable int oferta){
+    @GetMapping("/registrarEnOferta/{oferta}")
+    public ResponseEntity<?> registrarEnOferta(@RequestHeader("Authorization") String token, @PathVariable int oferta){
         try{
             String correo = jwtService.user(token);
             if(correo.length() > 0){

@@ -3,6 +3,7 @@ package edu.eci.arsw.lottoweb.modelo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -22,7 +23,7 @@ import java.util.ListIterator;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
-public class Subasta {
+public class Subasta implements Serializable {
 
     private Oferta oferta;
     private Conductor conductor;

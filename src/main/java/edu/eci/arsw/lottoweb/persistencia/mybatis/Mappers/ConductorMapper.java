@@ -24,7 +24,7 @@ public interface ConductorMapper {
     @Select("SELECT * FROM conductor WHERE correo = #{correo}")
     Conductor getConductorCorreo(@Param("correo") String correo);
 
-    @Insert("INSERT INTO conductor (documento , tipodocumento ,nombre ,correo ,telefono ,password, calificacion ) VALUES (#{Conductor.documento}, #{Conductor.tipoDocumento}, #{Conductor.nombre}, #{Conductor.correo}, #{Conductor.telefono}, #{Conductor.password}, #{Conductor.calificacion})")
+    @Insert("INSERT INTO conductor (documento , tipodocumento ,nombre ,correo ,telefono ,password, calificacion ) VALUES (#{conductor.documento}, #{conductor.tipoDocumento}, #{conductor.nombre}, #{conductor.correo}, #{conductor.telefono}, #{conductor.password}, #{conductor.calificacion})")
     void save(@Param("conductor") Conductor conductor);
 
     @Select("SELECT conductor.documento,conductor.tipodocumento,conductor.nombre,conductor.correo,conductor.telefono,conductor.calificacion FROM conductor,conductor_oferta, oferta WHERE conductor.documento = conductor_oferta.docconductor AND conductor.tipodocumento = conductor_oferta.tipodocconductor AND oferta.id = conductor_oferta.idoferta AND conductor_oferta.idoferta = #{oferta.id}")

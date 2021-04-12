@@ -21,6 +21,7 @@ public class MyBatisClienteDao implements ClienteDao {
     public List<Cliente> getClientes() throws PersistenceException {
         try{
             List<Cliente> li = cliente.getClientes();
+            System.out.println(li);
             return li;
         }catch (Exception e){
             throw new PersistenceException(PersistenceException.ERROR_EN_LA_SOLICITUD);

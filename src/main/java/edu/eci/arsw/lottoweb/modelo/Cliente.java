@@ -31,7 +31,7 @@ public class Cliente implements Serializable{
     @ApiModelProperty(value = "el correo del cliente", required = true)
     private String correo;
     @ApiModelProperty(value = "el telefono del cliente", required = true)
-    private int telefono;
+    private String telefono;
     @ApiModelProperty(value = "Password del cliente", required = true)
     private String password;
     @ApiModelProperty(value = "Rutas que ha establecido el cliente", required = true)
@@ -41,7 +41,7 @@ public class Cliente implements Serializable{
     @ApiModelProperty(value = "Viajes del cliente", required = true)
     private ArrayList<Viaje> viajes;
 
-    public Cliente(String documento, String tipoDocumento, String nombre, String correo, int telefono, String password){
+    public Cliente(String documento, String tipoDocumento, String nombre, String correo, String telefono, String password){
         this.documento=documento;
         this.tipoDocumento=tipoDocumento;
         this.nombre=nombre;
@@ -86,11 +86,11 @@ public class Cliente implements Serializable{
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -126,6 +126,4 @@ public class Cliente implements Serializable{
         this.password = password;
     }
 
-    public void setTelefono(String string) {
-    }
 }

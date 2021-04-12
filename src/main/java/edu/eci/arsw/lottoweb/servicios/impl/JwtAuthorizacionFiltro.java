@@ -34,7 +34,6 @@ import java.util.stream.Collectors;
 public class JwtAuthorizacionFiltro extends BasicAuthenticationFilter {
 
     private static final String AUTHORIZATION = "Authorization";
-
     @Autowired
     private JwtService jwtService;
 
@@ -44,8 +43,7 @@ public class JwtAuthorizacionFiltro extends BasicAuthenticationFilter {
 
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws IOException, ServletException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         String authHeader = request.getHeader(AUTHORIZATION);
         if (jwtService.isBearer(authHeader)) {
             LogManager.getLogger(this.getClass().getName()).debug(">>> FILTER JWT...");

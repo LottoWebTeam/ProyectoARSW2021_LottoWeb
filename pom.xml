@@ -205,7 +205,6 @@
             <configuration>
               <srcFiles>
                 <srcFile>sql/tablas.sql</srcFile>
-                <srcFile>sql/usuario.sql</srcFile>
               </srcFiles>
             </configuration>
           </execution>

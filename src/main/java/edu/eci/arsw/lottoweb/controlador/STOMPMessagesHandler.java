@@ -59,9 +59,9 @@ public class STOMPMessagesHandler {
         Ruta ruta = new Ruta();
         Viaje viaje = new Viaje();
         viaje.setRuta(ruta);
-        viaje.setDuracion(json.getJSONObject("oferta").getJSONObject("paseo").getInt("duracion"));
-        viaje.setEspecificaciones(json.getJSONObject("oferta").getJSONObject("paseo").getString("especificaciones"));
-        viaje.setPrecio(json.getJSONObject("oferta").getJSONObject("paseo").getInt("precio"));
+        viaje.setDuracion(json.getJSONObject("oferta").getJSONObject("viaje").getInt("duracion"));
+        viaje.setEspecificaciones(json.getJSONObject("oferta").getJSONObject("viaje").getString("especificaciones"));
+        viaje.setPrecio(json.getJSONObject("oferta").getJSONObject("viaje").getInt("precio"));
         oferta.setCreador(cliente);
         oferta.setViaje(viaje);
         String latitud = String.valueOf(json.getDouble("latitud"));
@@ -150,19 +150,19 @@ public class STOMPMessagesHandler {
         this.simpMessagingTemplate.convertAndSend("/topic/actualizarUbicacion."+conductor.getCorreo(), "{\"lat\" : "+lat+", \"lng\" : "+lng+", \"oferta\" : "+oferta+" }");
     }
 
-    @MessageMapping("/cancelarPaseo")
-    public void cancelarPaseo(Oferta oferta){
-        this.simpMessagingTemplate.convertAndSend("/topic/cancelarPaseo."+oferta.getCreador().getCorreo(), oferta);
+    @MessageMapping("/cancelarViaje")
+    public void cancelarViaje(Oferta oferta){
+        this.simpMessagingTemplate.convertAndSend("/topic/cancelarViaje."+oferta.getCreador().getCorreo(), oferta);
     }
 
-    @MessageMapping("/comenzarPaseoVivo")
-    public void comenzarPaseoVivo(Oferta oferta){
-        this.simpMessagingTemplate.convertAndSend("/topic/comenzarPaseoVivo."+oferta.getCreador().getCorreo(),oferta);
+    @MessageMapping("/comenzarViajeVivo")
+    public void comenzarViajeVivo(Oferta oferta){
+        this.simpMessagingTemplate.convertAndSend("/topic/comenzarViajeVivo."+oferta.getCreador().getCorreo(),oferta);
     }
 
-    @MessageMapping("/finalizarPaseo")
-    public void finalizarPaseo(Oferta oferta){
-        this.simpMessagingTemplate.convertAndSend("/topic/finPaseo."+oferta.getCreador().getCorreo(), oferta);
+    @MessageMapping("/finalizarViaje")
+    public void finalizarViaje(Oferta oferta){
+        this.simpMessagingTemplate.convertAndSend("/topic/finViaje."+oferta.getCreador().getCorreo(), oferta);
     }
 
     @EventListener
@@ -190,7 +190,7 @@ public class STOMPMessagesHandler {
             Oferta oferta = this.serviceLottoWeb.getOferta(numOferta);
             this.serviceLottoWeb.salirDeOferta(conductor,oferta);
             this.simpMessagingTemplate.convertAndSend("/topic/eliminarconductor/oferta."+numOferta, conductor);
-            this.simpMessagingTemplate.convertAndSend("/topic/cancelarPaseo."+oferta.getCreador().getCorreo(), oferta);
+            this.simpMessagingTemplate.convertAndSend("/topic/cancelarViaje."+oferta.getCreador().getCorreo(), oferta);
         }
     }
 

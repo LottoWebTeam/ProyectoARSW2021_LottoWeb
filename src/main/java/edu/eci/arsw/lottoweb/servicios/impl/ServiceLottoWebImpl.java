@@ -64,18 +64,19 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
     @Override
     public Cliente getCliente(String correo) throws ExceptionServiciosLottoWeb {
         try{
-//            return new Cliente();
             return this.cliente.getCliente(correo);
         }catch (edu.eci.arsw.lottoweb.persistencia.PersistenceException e){
             throw new ExceptionServiciosLottoWeb("no se ha podido realizar la consulta", (edu.eci.arsw.lottoweb.persistencia.PersistenceException) e);
-//            return null;
+
         }
     }
 
     @Override
     public List<Cliente> getAllClientes() throws ExceptionServiciosLottoWeb {
         try {
+            System.out.println("bien");
             return this.cliente.getClientes();
+
         } catch (edu.eci.arsw.lottoweb.persistencia.PersistenceException e) {
             throw new ExceptionServiciosLottoWeb("no se ha podido realizar la consulta", (edu.eci.arsw.lottoweb.persistencia.PersistenceException) e);
         }
@@ -171,6 +172,7 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
     @Override
     public List<Conductor> getConductores() throws ExceptionServiciosLottoWeb {
         try {
+            System.out.println(this.conductor.getConductores());
             return this.conductor.getConductores();
         } catch (PersistenceException e) {
             throw new ExceptionServiciosLottoWeb("no se ha podido realizar la consulta",e);

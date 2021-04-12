@@ -66,6 +66,7 @@ public class MyBatisConductorDao implements ConductorDao {
     public void save(Conductor Conductor) throws PersistenceException {
         try{
             this.conductor.save(Conductor);
+            System.out.println("amigos creo que ya casi");
         }catch (Exception e){
             e.printStackTrace();
             throw new PersistenceException(PersistenceException.ERROR_EN_LA_SOLICITUD);

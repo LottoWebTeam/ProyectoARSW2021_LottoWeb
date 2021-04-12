@@ -2,6 +2,7 @@ package edu.eci.arsw.lottoweb.modelo;
 
 import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
-public class ViajeEnCurso {
+public class ViajeEnCurso implements Serializable {
 
     @ApiModelProperty(value = "Identificador del viaje en curso", required = true)
     private int id;
