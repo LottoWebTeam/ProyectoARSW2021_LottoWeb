@@ -23,7 +23,7 @@ import java.util.ListIterator;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
-public class Subasta implements Serializable {
+public class Subasta {
 
     private Oferta oferta;
     private Conductor conductor;

@@ -19,7 +19,7 @@ import java.util.List;
  * ---------------------------------------------------------------------------------------------------------------------------
  */
 
-public class ViajeEnCurso implements Serializable {
+public class ViajeEnCurso {
 
     @ApiModelProperty(value = "Identificador del viaje en curso", required = true)
     private int id;

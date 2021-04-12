@@ -20,7 +20,7 @@ import java.io.Serializable;
  */
 
 @ApiModel("Model Ruta")
-public class Ruta implements Serializable {
+public class Ruta {
 
     @ApiModelProperty(value = "Identificador de la ruta", required = true)
     private int id;

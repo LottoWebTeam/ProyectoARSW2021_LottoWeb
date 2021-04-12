@@ -20,7 +20,7 @@ import java.io.Serializable;
  */
 
 @ApiModel("Model Viaje")
-public class Viaje implements Serializable {
+public class Viaje{
 
     @ApiModelProperty(value = "Identificador del viaje", required = true)
     private int id;

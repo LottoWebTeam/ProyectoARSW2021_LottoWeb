@@ -1,8 +1,10 @@
 package edu.eci.arsw.lottoweb.modelo;
 
+
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
+
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------------
@@ -19,7 +21,7 @@ import java.io.Serializable;
  */
 
 @ApiModel("Model Ubicacion")
-public class Ubicacion implements Serializable {
+public class Ubicacion  {
 
     private String latitud;
     private String longitud;
@@ -27,6 +29,7 @@ public class Ubicacion implements Serializable {
     public Ubicacion(){
 
     }
+
 
     public String getLatitud() {
         return latitud;

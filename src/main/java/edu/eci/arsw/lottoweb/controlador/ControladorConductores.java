@@ -61,7 +61,7 @@ public class ControladorConductores {
     @ApiOperation(value = "Obtiene todos los conductores en un orden específico",notes = "Devuelve todos los conductores en un orden específico")
     public ResponseEntity<?> getConductoresSort(@PathVariable("tipo") String tipo){
         try{
-            return new ResponseEntity<>(lottowebService.getConductor(tipo), HttpStatus.OK);
+            return new ResponseEntity<>(lottowebService.getConductoresOrder(tipo), HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>("No existe registro de conductores", HttpStatus.NOT_FOUND);

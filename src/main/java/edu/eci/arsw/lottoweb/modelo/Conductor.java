@@ -23,7 +23,7 @@ import java.io.Serializable;
  */
 
 @ApiModel("Model Conductor")
-public class Conductor implements Serializable {
+public class Conductor {
 
     @ApiModelProperty(value = "el documento del conductor (Hace parte del la primaria compuesta)", required = true)
     private String documento;

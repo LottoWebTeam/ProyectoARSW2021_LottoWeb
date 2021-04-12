@@ -172,7 +172,6 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
     @Override
     public List<Conductor> getConductores() throws ExceptionServiciosLottoWeb {
         try {
-            System.out.println(this.conductor.getConductores());
             return this.conductor.getConductores();
         } catch (PersistenceException e) {
             throw new ExceptionServiciosLottoWeb("no se ha podido realizar la consulta",e);

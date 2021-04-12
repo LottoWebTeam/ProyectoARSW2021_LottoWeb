@@ -23,7 +23,7 @@ import java.util.List;
 
 
 @ApiModel("Model Ruta")
-public class Oferta implements Serializable {
+public class Oferta  {
 
     @ApiModelProperty(value = "Identificador de la subasta", required = true)
     private int id;
