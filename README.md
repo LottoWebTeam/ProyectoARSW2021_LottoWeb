@@ -71,7 +71,7 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 ## Despliegue en CircleCi✔️ 
 
-[![CircleCI](https://circleci.com/gh/Candres1019/LAB6_CVDS.svg?style=svg)](https://app.circleci.com/pipelines/github/Candres1019/LAB6_CVDS)
+[![CircleCI](https://circleci.com/gh/LottoWebTeam/ProyectoARSW2021_LottoWeb.svg?style=svg)](https://app.circleci.com/pipelines/github/LottoWebTeam/ProyectoARSW2021_LottoWeb)
 
 
 ## Despliegue en Codacy
