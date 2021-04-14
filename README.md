@@ -1,4 +1,4 @@
-# ProyectoARSW2021_LottoWeb
+# # Proyecto ARSW-2021 LottoWeb
 
 Para la intermediación entre los transportistas y los usuarios mediante una aplicación móvil en Bogotá
 
@@ -58,6 +58,22 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 * **Diagrama de componentes:**
 
 ![](img/DiagramaComponentes.PNG)
+
+* **Diagrama de Secuencia:** (Algunos)
+
+![](img/secuencia1.PNG)
+
+![](img/secuencia2.PNG)
+
+![](img/secuencia3.PNG)
+
+![](img/secuencia4.PNG)
+
+## GitHub
+
+Front:	https://github.com/LottoWebTeam/LottoWebFront.git
+Back:	https://github.com/LottoWebTeam/LottoWebBackend.git
+Proyecto Completo y Unificado:	https://github.com/LottoWebTeam/ProyectoARSW2021_LottoWeb.git
 
 
 ## Taiga
