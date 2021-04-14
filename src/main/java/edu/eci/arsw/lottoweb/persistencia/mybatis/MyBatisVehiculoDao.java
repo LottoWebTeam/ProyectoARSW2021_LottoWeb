@@ -20,6 +20,7 @@ public class MyBatisVehiculoDao implements VehiculoDao {
         try {
             System.out.println(id);
             Vehiculo ma = vehiculo.getVehiculo(id);
+            System.out.println(ma.getMarca());
             return ma;
         } catch (Exception e) {
             throw new PersistenceException(PersistenceException.ERROR_EN_LA_SOLICITUD);
@@ -51,6 +52,7 @@ public class MyBatisVehiculoDao implements VehiculoDao {
     @Override
     public void save(Vehiculo vehiculo) throws PersistenceException {
         try {
+            System.out.println("si entra=?");
             this.vehiculo.save(vehiculo);
         } catch (Exception e) {
             throw new PersistenceException(PersistenceException.ERROR_EN_LA_SOLICITUD);

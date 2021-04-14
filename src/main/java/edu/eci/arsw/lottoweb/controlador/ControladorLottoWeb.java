@@ -92,6 +92,8 @@ public class ControladorLottoWeb {
     public ResponseEntity<?> getClienteByCorreo(@RequestHeader("Authorization")  String token){
         try{
             String correo = jwtService.user(token);
+            System.out.println(correo);
+
             if(correo.length() > 0){
                 return new ResponseEntity<>(lottoWebService.getCliente(correo), HttpStatus.ACCEPTED);
             }else{
