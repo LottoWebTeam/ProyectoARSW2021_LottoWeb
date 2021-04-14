@@ -72,7 +72,9 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 ## GitHub
 
 Front:	https://github.com/LottoWebTeam/LottoWebFront.git
+
 Back:	https://github.com/LottoWebTeam/LottoWebBackend.git
+
 Proyecto Completo y Unificado:	https://github.com/LottoWebTeam/ProyectoARSW2021_LottoWeb.git
 
 
