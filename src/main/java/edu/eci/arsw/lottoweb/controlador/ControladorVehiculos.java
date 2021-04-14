@@ -52,7 +52,7 @@ public class ControladorVehiculos {
         try {
             return new ResponseEntity<>(lottowebService.getVehiculo(id),HttpStatus.ACCEPTED);
         }catch (Exception e){
-            return new ResponseEntity<>("No se encontró la vehiculo requerida",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se encontró el vehiculo requerida",HttpStatus.NOT_FOUND);
         }
     }
 

@@ -125,9 +125,10 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
         try {
             int id = this.vehiculo.nextId();
             vehiculo.setId(id);
+            System.out.println("hola que hace bien o no");
             this.vehiculo.save(vehiculo);
         } catch (PersistenceException e) {
-            throw new ExceptionServiciosLottoWeb("no se ha podido realizar la operacioón",e);
+            throw new ExceptionServiciosLottoWeb("no se ha podido realizar la operación",e);
         }
     }
 
@@ -147,7 +148,7 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
             this.vehiculo.delete(id);
         }catch (PersistenceException e){
             e.printStackTrace();
-            throw new ExceptionServiciosLottoWeb("no se pudo eliminar la vehiculo",e);
+            throw new ExceptionServiciosLottoWeb("no se pudo eliminar el vehiculo",e);
         }
     }
 
@@ -245,7 +246,7 @@ public class ServiceLottoWebImpl implements ServiceLottoWeb{
             this.oferta.save(oferta);
         } catch (PersistenceException e) {
             e.printStackTrace();
-            throw new ExceptionServiciosLottoWeb("no se ha podido realizar la ooperación",e);
+            throw new ExceptionServiciosLottoWeb("no se ha podido realizar la operación",e);
         }
     }
 

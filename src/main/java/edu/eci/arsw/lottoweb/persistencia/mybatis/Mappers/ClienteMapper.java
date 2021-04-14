@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface ClienteMapper {
 
-    @Select("SELECT * FROM Cliente")
+    @Select("SELECT * FROM cliente")
     List<Cliente> getClientes();
 
     @Select("SELECT * FROM cliente WHERE documento = #{documento} AND tipoDocumento = #{tdoc}")
