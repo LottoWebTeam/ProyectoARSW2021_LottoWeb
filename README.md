@@ -1,4 +1,4 @@
-# ProyectoARSW2021_LottoWeb
+# # Proyecto ARSW-2021 LottoWeb
 
 Para la intermediación entre los transportistas y los usuarios mediante una aplicación móvil en Bogotá
 
@@ -59,6 +59,24 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 ![](img/DiagramaComponentes.PNG)
 
+* **Diagrama de Secuencia:** (Algunos)
+
+![](img/secuencia1.PNG)
+
+![](img/secuencia2.PNG)
+
+![](img/secuencia3.PNG)
+
+![](img/secuencia4.PNG)
+
+## GitHub
+
+Front:	https://github.com/LottoWebTeam/LottoWebFront.git
+
+Back:	https://github.com/LottoWebTeam/LottoWebBackend.git
+
+Proyecto Completo y Unificado:	https://github.com/LottoWebTeam/ProyectoARSW2021_LottoWeb.git
+
 
 ## Taiga
 
@@ -71,12 +89,12 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 ## Despliegue en CircleCi✔️ 
 
-[![CircleCI](https://circleci.com/gh/Los-Innombrables/2020-2-PROYCVDS-LosInnombrables.svg?style=svg)](https://app.circleci.com/pipelines/github/LottoWebTeam/ProyectoARSW2021_LottoWeb)
+[![CircleCI](https://circleci.com/gh/LottoWebTeam/ProyectoARSW2021_LottoWeb.svg?style=svg)](https://app.circleci.com/pipelines/github/LottoWebTeam/ProyectoARSW2021_LottoWeb)
 
 
 ## Despliegue en Codacy
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6dc63ea7bc64c57988c829bcac97102)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LottoWebTeam/ProyectoARSW2021_LottoWeb&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e16dfd16827243a3b8a98c3e18198bb3)](https://www.codacy.com/gh/LottoWebTeam/ProyectoARSW2021_LottoWeb/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LottoWebTeam/ProyectoARSW2021_LottoWeb&amp;utm_campaign=Badge_Grade)
 
 * **Adriana Marcela Castañeda Velasquez** - [adrianamcv](https://github.com/adrianamcv)
 * **Brayan Santiago Buitrago Murillo** - [DonSantiagoS](https://github.com/DonSantiagoS)
