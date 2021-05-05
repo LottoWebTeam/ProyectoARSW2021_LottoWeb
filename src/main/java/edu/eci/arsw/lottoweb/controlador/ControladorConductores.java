@@ -48,50 +48,80 @@ public class ControladorConductores {
 
 
     @GetMapping("")
-    @ApiOperation(value = "Obtiene todos los conductores",notes = "Devuelve todos los conductores")
-    public ResponseEntity<?> getConductores(){
+    @ApiOperation(value = "Obtiene todos los conductores", notes = "Devuelve todos los conductores")
+    public ResponseEntity<?> getConductores() {
         try {
-            return new ResponseEntity<>(lottowebService.getConductores(),HttpStatus.ACCEPTED);
-        }catch (Exception e){
+            return new ResponseEntity<>(lottowebService.getConductores(), HttpStatus.ACCEPTED);
+        } catch (Exception e) {
             return new ResponseEntity<>("No existe registro de conductores", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/sort/{tipo}")
-    @ApiOperation(value = "Obtiene todos los conductores en un orden específico",notes = "Devuelve todos los conductores en un orden específico")
-    public ResponseEntity<?> getConductoresSort(@PathVariable("tipo") String tipo){
-        try{
+    @ApiOperation(value = "Obtiene todos los conductores en un orden específico", notes = "Devuelve todos los conductores en un orden específico")
+    public ResponseEntity<?> getConductoresSort(@PathVariable("tipo") String tipo) {
+        try {
             return new ResponseEntity<>(lottowebService.getConductoresOrder(tipo), HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>("No existe registro de conductores", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/{documento}/{tdoc}")
-    @ApiOperation(value = "Obtiene un conductor",notes = "Devuelve un conductor por documento y tipo de documento")
-    public ResponseEntity<?> getConductor(@PathVariable String documento, @PathVariable String tdoc){
+    @ApiOperation(value = "Obtiene un conductor", notes = "Devuelve un conductor por documento y tipo de documento")
+    public ResponseEntity<?> getConductor(@PathVariable String documento, @PathVariable String tdoc) {
         try {
-            return new ResponseEntity<>(lottowebService.getConductor(documento,tdoc), HttpStatus.ACCEPTED);
-        }catch (Exception e){
+            return new ResponseEntity<>(lottowebService.getConductor(documento, tdoc), HttpStatus.ACCEPTED);
+        } catch (Exception e) {
             return new ResponseEntity<>("El conductor solicitado no existe", HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/whoami")
     @ApiOperation(value = "Obtiene informacion del conductor autenticado", notes = "El conductor solicitado debe estar autenticado")
-    public ResponseEntity<?> getConductor(@RequestHeader("Authorization") String token){
-        try{
+    public ResponseEntity<?> getConductor(@RequestHeader("Authorization") String token) {
+        try {
             String correo = jwtService.user(token);
-            if(correo.length() > 0){
+            if (correo.length() > 0) {
                 Conductor conductor = lottowebService.getConductor(correo);
-                return new ResponseEntity<>(conductor,HttpStatus.OK);
-            }else {
+                return new ResponseEntity<>(conductor, HttpStatus.OK);
+            } else {
                 return new ResponseEntity<>("No autenticado", HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>("Error en la solicitud", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/vehiculos")
+    @ApiOperation(value = "Encuentra las vehiculos del cliente logueado", notes = "se debe estar logueado con token valido para obtener estas Vehiculos")
+    public ResponseEntity<?> getVehiculos(@RequestHeader("Authorization") String token){
+        try{
+            String correo = jwtService.user(token);
+            if(correo.length() > 0){
+                return new ResponseEntity<>(lottowebService.getVehiculos(correo), HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>("Error", HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
+            }
+        }catch (Exception e){
+            return new ResponseEntity<>("Error en la solicitud", HttpStatus.NOT_FOUND);
+        }
+    }
+    @GetMapping("/correo")
+    @ApiOperation(value = "Encuentra la información del cliente mediante el correo",notes = "Devuelve el cliente requerido")
+    public ResponseEntity<?> getClienteByCorreo(@RequestHeader("Authorization")  String token){
+        try{
+            String correo = jwtService.user(token);
+            System.out.println(correo);
+
+            if(correo.length() > 0){
+                return new ResponseEntity<>(lottowebService.getConductor(correo), HttpStatus.ACCEPTED);
+            }else{
+                return new ResponseEntity<>("Error", HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
+            }
+        }catch(Exception e){
+            return new ResponseEntity<>("Error en la solicitud", HttpStatus.NOT_FOUND);
         }
     }
 
