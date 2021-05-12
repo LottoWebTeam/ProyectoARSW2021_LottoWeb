@@ -25,15 +25,15 @@ import java.util.List;
 @ApiModel("Model Ruta")
 public class Oferta  {
 
-    @ApiModelProperty(value = "Identificador de la subasta", required = true)
+    @ApiModelProperty(value = "Identificador de la Oferta", required = true)
     private int id;
-    @ApiModelProperty(value = "Valor que se dió como resultado de la subasta", required = true)
+    @ApiModelProperty(value = "Valor que se dió como resultado de la Oferta", required = true)
     private int subasta;
-    @ApiModelProperty(value = "Creador de la subasta", required = true)
+    @ApiModelProperty(value = "Creador de la Oferta", required = true)
     private Cliente creador;
-    @ApiModelProperty(value = "paseo de la subasta", required = true)
+    @ApiModelProperty(value = "paseo de la Oferta", required = true)
     private Viaje viaje;
-    @ApiModelProperty(value = "Paseadores en la subasta", required = true)
+    @ApiModelProperty(value = "Paseadores en la Oferta", required = true)
     List<Conductor> conductores = new ArrayList<>();
 
     public Oferta(){
