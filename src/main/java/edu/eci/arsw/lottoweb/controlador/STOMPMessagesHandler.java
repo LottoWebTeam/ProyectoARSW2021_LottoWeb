@@ -90,7 +90,6 @@ public class STOMPMessagesHandler {
         par.add(numOferta);
         par.add(conductor);
         this.sesionesOfertaconductores.put(sessionId,par);
-        System.out.println(conductor.getUbicacion().getLatitud() + " }}}}}}}}}}}}}}}}}}}}}}}}}");
         Oferta oferta = new Oferta();
         oferta.setId(numOferta);
         this.serviceLottoWeb.entrarAOferta(conductor, oferta);

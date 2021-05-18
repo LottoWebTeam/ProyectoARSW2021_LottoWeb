@@ -54,7 +54,6 @@ public class Conductor {
         this.telefono= telefono;
         this.password= password;
         this.calificacion=calificacion;
-        this.vehiculoServicio= vehiculoServicio;
         viajes= new ArrayList<Viaje>();
         ofertas= new ArrayList<Oferta>();
     }
@@ -112,14 +111,6 @@ public class Conductor {
         this.calificacion = calificacion;
     }
 
-    public Vehiculo getVehiculoServicio() {
-        return vehiculoServicio;
-    }
-
-    public void setVehiculoServicio(Vehiculo vehiculoServicio) {
-        this.vehiculoServicio = vehiculoServicio;
-    }
-
     public ArrayList<Viaje> getViajes() {
         return viajes;
     }
@@ -144,7 +135,4 @@ public class Conductor {
         this.password = password;
     }
 
-    public Ubicacion getUbicacion() {
-        return vehiculoServicio.getUbicacion();
-    }
 }
