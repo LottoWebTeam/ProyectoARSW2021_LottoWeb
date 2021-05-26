@@ -15,41 +15,12 @@ Para la intermediación entre los transportistas y los usuarios mediante una apl
 *  solicitar un viaje estableciendo el punto departida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductor llegue al punto de partida.
 *  Ofrecer funcionalidades de Seguimiento en tiempo real del viaje, Intermerdiacion entre multiples usuarios y conductores, Alta eficacia en los tiempos de atención, Alta efectividad para los conductores de los vehiculos y Seguridad en la operación
 
-## Descripción
-
-* **Login - Registro:**
-Los usuarios pueden ingresar a la aplicación y registrarse como conductores o clientes para solicitar un servicio. Una vez ingresen encontraran diferentes funcionalidades de acuerdo a su perfil.
-
-![](Mockup/2-Registro.PNG)
-
-![](Mockup/4-IniciarSesión.PNG)
-
-* **Solicitud de un servicio:**
-Es posible solicitar un viaje estableciendo el punto de partida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductores llegue al punto de partida.
-
-![](Mockup/11-NuevoViaje.PNG)
-
-![](Mockup/14-SeguirViaje.PNG)
-
-* **Tomar un servicio:**
-Una vez se realiza la solicitud de un servicio, los conductores podrán verlo en los viajes disponibles y decidir si desean enviar una oferta. El cliente puede elegir que oferta tomar y una vez seleccionada iniciará el viaje.
-
-![](Mockup/7-ViajesDisponibles.PNG)
-
-![](Mockup/12-OfertasViaje.PNG)
-
-* **Durante y después del viaje:**
-Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido. Una vez finalice el viaje los usuario podrán calificar al conductor de acuerdo al servicio prestado.
-
-![](Mockup/15-Recorrido.PNG)
-
-![](Mockup/16-CalificarConductor.PNG)
 
 ## Diagramas
 
 * **Diagrama de casos de uso:**
 
-![](img/casos%20de%20uso.png)
+![](img/casosDeUso.png)
 
 * **Diagrama de clases:**
 
@@ -73,14 +44,9 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 ![](img/secuencia4.PNG)
 
-## GitHub
+## GitBook
 
-Front:	https://github.com/LottoWebTeam/LottoWebFront.git
-
-Back:	https://github.com/LottoWebTeam/LottoWebBackend.git
-
-Proyecto Completo y Unificado:	https://github.com/LottoWebTeam/ProyectoARSW2021_LottoWeb.git
-
+https://lottoweb.gitbook.io/lottoweb-1/
 
 ## Taiga
 
