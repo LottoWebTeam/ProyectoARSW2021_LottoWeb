@@ -15,35 +15,6 @@ Para la intermediación entre los transportistas y los usuarios mediante una apl
 *  solicitar un viaje estableciendo el punto departida, el punto de llegada, y el servicio que desea tomar. Una vez solicitado el servicio será posible cancelarlo antes de que el conductor llegue al punto de partida.
 *  Ofrecer funcionalidades de Seguimiento en tiempo real del viaje, Intermerdiacion entre multiples usuarios y conductores, Alta eficacia en los tiempos de atención, Alta efectividad para los conductores de los vehiculos y Seguridad en la operación
 
-
-## Diagramas
-
-* **Diagrama de casos de uso:**
-
-![](img/casosDeUso.png)
-
-* **Diagrama de clases:**
-
-![](img/DiagramaClases.PNG)
-
-* **Diagrama de componentes:**
-
-![](img/DiagramaComponentes.png)
-
-* **Diagrama de Despliegue:**
-
-![](img/despliegue.png)
-
-* **Diagrama de Secuencia:** (Algunos)
-
-![](img/secuencia1.PNG)
-
-![](img/secuencia2.PNG)
-
-![](img/secuencia3.PNG)
-
-![](img/secuencia4.PNG)
-
 ## GitBook
 
 https://lottoweb.gitbook.io/lottoweb-1/
