@@ -59,6 +59,10 @@ Durante el viaje es posible realizar el seguimiento en tiempo real del recorrido
 
 ![](img/DiagramaComponentes.png)
 
+* **Diagrama de Despliegue:**
+
+![](img/Despliegue.png)
+
 * **Diagrama de Secuencia:** (Algunos)
 
 ![](img/secuencia1.PNG)
